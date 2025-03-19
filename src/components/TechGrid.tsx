@@ -10,9 +10,10 @@ interface TechItemProps {
   icon: React.ReactNode;
   className?: string;
   delay?: number;
+  color?: string;
 }
 
-const TechItem = ({ title, description, icon, className, delay = 0 }: TechItemProps) => (
+const TechItem = ({ title, description, icon, className, delay = 0, color = "bg-space-cyan" }: TechItemProps) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -20,11 +21,14 @@ const TechItem = ({ title, description, icon, className, delay = 0 }: TechItemPr
     transition={{ duration: 0.6, delay, type: "spring", stiffness: 100 }}
     whileHover={{ y: -5, transition: { duration: 0.2 } }}
     className={cn(
-      "relative group glass-panel p-6",
+      "cosmic-card hover-lift group",
       className
     )}
   >
-    <div className="tech-circle w-16 h-16 mb-4 group-hover:border-opacity-80 transition-all duration-300">
+    <div className={cn(
+      "tech-circle w-16 h-16 mb-4 group-hover:border-opacity-80 transition-all duration-300",
+      `border-${color}`
+    )}>
       <div className="absolute inset-0 bg-glow-circle opacity-0 group-hover:opacity-40 transition-opacity duration-300"></div>
       {icon}
     </div>
@@ -62,17 +66,32 @@ const TechGrid = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-2xl text-space-cyan font-medium mb-2">SERVICES</h2>
+          <div className="inline-block mb-4 px-6 py-1 bg-space-blue/30 backdrop-blur-sm border border-space-cyan/20 rounded-full">
+            <h2 className="text-sm font-medium text-space-cyan">NOSSOS SERVIÇOS</h2>
+          </div>
           <h1 className="text-4xl md:text-5xl font-bold gradient-text mb-6">FUTURE TECHNOLOGY</h1>
           <p className="text-space-light max-w-xl mx-auto">
-            Exploring the cutting edge of what's possible with next-generation digital solutions.
+            Explorando o limite do que é possível com soluções digitais de próxima geração.
           </p>
         </motion.div>
 
         <div className="relative">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px]">
-            <div className="orbit-line w-full h-full animate-rotate-slow"></div>
-            <div className="orbit-line w-[70%] h-[70%] top-[15%] left-[15%] animate-rotate-slow" style={{ animationDirection: 'reverse' }}></div>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1 }}
+              className="orbit-line w-full h-full animate-rotate-slow"
+            ></motion.div>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.2 }}
+              className="orbit-line w-[70%] h-[70%] top-[15%] left-[15%] animate-rotate-slow" 
+              style={{ animationDirection: 'reverse' }}
+            ></motion.div>
 
             {/* Connector lines */}
             <motion.div 
@@ -115,14 +134,14 @@ const TechGrid = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, type: "spring", stiffness: 100 }}
-              className="tech-circle w-60 h-60 bg-tech-circle border-2 border-space-cyan/30"
+              className="tech-circle w-60 h-60 bg-tech-circle border-2 border-space-cyan/30 backdrop-blur-md"
             >
               <div className="text-center p-4">
-                <h2 className="text-2xl font-semibold mb-1 text-space-cyan">FUTURE</h2>
+                <h2 className="text-2xl font-semibold mb-1 neon-text">FUTURE</h2>
                 <h2 className="text-2xl font-semibold mb-4 gradient-text">TECHNOLOGY</h2>
                 <p className="text-xs text-space-light px-4 leading-relaxed">
-                  Tonytm Images produce various kind of high-quality contents constantly updated 
-                  and those are being distributed all around the world, after discussion about
+                  Tecnologias de ponta e soluções digitais constantemente atualizadas 
+                  e distribuídas ao redor do mundo, após discussão sobre desenvolvimento
                 </p>
               </div>
               <div className="absolute inset-0 rounded-full bg-neon-glow-gradient animate-glow-pulse"></div>
@@ -138,31 +157,35 @@ const TechGrid = () => {
           >
             <TechItem 
               title="SATELLITE" 
-              description="Advanced satellite technology for global communication networks and remote sensing applications."
+              description="Tecnologia avançada de satélite para redes de comunicação global e aplicações de sensoriamento remoto."
               icon={<Satellite className="text-space-cyan" size={24} />}
               className="lg:col-start-1 flex flex-col items-center text-center"
               delay={0.1}
+              color="space-cyan"
             />
             <TechItem 
               title="PROCESSING" 
-              description="Cutting-edge quantum computing and processing solutions for complex data analysis challenges."
-              icon={<Cpu className="text-space-cyan" size={24} />}
+              description="Soluções de computação quântica e processamento de ponta para desafios complexos de análise de dados."
+              icon={<Cpu className="text-space-purple" size={24} />}
               className="lg:col-start-2 flex flex-col items-center text-center"
               delay={0.2}
+              color="space-purple"
             />
             <TechItem 
               title="EXPLORATION" 
-              description="Space exploration technologies designed to push the boundaries of what's possible beyond Earth."
-              icon={<Rocket className="text-space-cyan" size={24} />}
+              description="Tecnologias de exploração espacial projetadas para expandir as fronteiras do que é possível além da Terra."
+              icon={<Rocket className="text-space-pink" size={24} />}
               className="lg:col-start-3 flex flex-col items-center text-center"
               delay={0.3}
+              color="space-pink"
             />
             <TechItem 
               title="GLOBAL NETWORK" 
-              description="Interconnected global network infrastructures enabling seamless communication and data sharing."
-              icon={<Globe className="text-space-cyan" size={24} />}
+              description="Infraestruturas de rede global interconectadas que permitem comunicação e compartilhamento de dados perfeitos."
+              icon={<Globe className="text-space-gold" size={24} />}
               className="lg:col-start-4 flex flex-col items-center text-center"
               delay={0.4}
+              color="space-gold"
             />
           </motion.div>
         </div>

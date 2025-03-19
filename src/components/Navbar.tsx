@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Star } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -35,6 +35,24 @@ const Navbar = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
+  const navVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: { 
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: -10 },
+    visible: { opacity: 1, y: 0 }
+  };
+
   return (
     <nav
       className={cn(
@@ -50,6 +68,9 @@ const Navbar = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
+          <div className="mr-2 w-6 h-6 bg-space-blue/30 rounded-full border border-space-cyan/50 flex items-center justify-center">
+            <Star className="w-3 h-3 text-space-cyan" />
+          </div>
           <span className="text-space-cyan mr-1">CBX</span> Growth
           <span className="ml-1 w-2 h-2 rounded-full bg-space-cyan animate-pulse block"></span>
         </motion.a>
@@ -106,27 +127,25 @@ const Navbar = () => {
         ) : (
           <motion.div 
             className="flex space-x-6 items-center mx-auto md:mx-0"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
+            variants={navVariants}
+            initial="hidden"
+            animate="visible"
           >
             {navigation.map((item, index) => (
               <motion.a 
                 key={item.name} 
                 href={item.href} 
                 className="nav-link"
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
+                variants={itemVariants}
                 whileHover={{ y: -2 }}
               >
                 {item.name}
               </motion.a>
             ))}
             <motion.button
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: navigation.length * 0.1 }}
+              variants={itemVariants}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
               className="ml-4 px-6 py-2 bg-space-cyan text-space-dark font-medium rounded-md hover:bg-space-cyan/80 transition-colors"
             >
               INSCREVA-SE

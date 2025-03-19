@@ -86,7 +86,7 @@
   }
   
   .gradient-text {
-    @apply font-bold text-transparent bg-clip-text bg-gradient-to-r from-space-cyan to-space-purple;
+    @apply font-bold text-transparent bg-clip-text bg-gradient-to-r from-space-cyan via-space-purple to-space-pink;
   }
   
   .glow {
@@ -140,6 +140,30 @@
   
   .backdrop-blur-card {
     @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-xl;
+  }
+  
+  .hover-lift {
+    @apply transition-transform duration-300 ease-out hover:-translate-y-1;
+  }
+  
+  .hover-scale {
+    @apply transition-transform duration-300 ease-out hover:scale-105;
+  }
+  
+  .neon-text {
+    @apply text-space-cyan;
+    text-shadow: 0 0 5px rgba(100, 255, 218, 0.7), 0 0 10px rgba(100, 255, 218, 0.5);
+  }
+  
+  .cosmic-card {
+    @apply relative overflow-hidden rounded-xl border border-space-cyan/20 bg-space-dark/60 backdrop-blur-lg p-6;
+    box-shadow: 0 10px 40px -15px rgba(100, 255, 218, 0.2);
+  }
+  
+  .cosmic-card::before {
+    content: '';
+    @apply absolute top-0 left-0 w-full h-full bg-gradient-to-br from-space-purple/5 to-space-cyan/5 opacity-30;
+    z-index: -1;
   }
 }
 

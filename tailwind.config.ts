@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -191,6 +192,30 @@ export default {
 						opacity: '1',
 						filter: 'brightness(1.5) blur(2px)'
 					}
+				},
+				'bounce-subtle': {
+					'0%, 100%': {
+						transform: 'translateY(0)'
+					},
+					'50%': {
+						transform: 'translateY(-5px)'
+					}
+				},
+				'breathe': {
+					'0%, 100%': {
+						boxShadow: '0 0 20px 5px rgba(100, 255, 218, 0.3)'
+					},
+					'50%': {
+						boxShadow: '0 0 30px 8px rgba(100, 255, 218, 0.5)'
+					}
+				},
+				'pulse-subtle': {
+					'0%, 100%': {
+						opacity: '0.8'
+					},
+					'50%': {
+						opacity: '1'
+					}
 				}
 			},
 			animation: {
@@ -205,7 +230,10 @@ export default {
 				'float-gentle': 'float-gentle 8s ease-in-out infinite',
 				'glow-pulse': 'glow-pulse 4s ease-in-out infinite',
 				'slide-up-fade': 'slide-up-fade 0.6s ease-out forwards',
-				'sparkle': 'sparkle 3s ease-in-out infinite'
+				'sparkle': 'sparkle 3s ease-in-out infinite',
+				'bounce-subtle': 'bounce-subtle 3s ease-in-out infinite',
+				'breathe': 'breathe 4s ease-in-out infinite',
+				'pulse-subtle': 'pulse-subtle 3s ease-in-out infinite',
 			},
 			backgroundImage: {
 				'space-gradient': 'linear-gradient(to bottom, #0A192F, #172A45)',
