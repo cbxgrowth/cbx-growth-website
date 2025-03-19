@@ -42,7 +42,7 @@ const Navbar = () => {
         scrolled ? 'bg-space-dark/80 backdrop-blur-md py-3 shadow-lg' : 'py-6'
       )}
     >
-      <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
+      <div className="container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between">
         <motion.a 
           href="#" 
           className="text-xl font-bold text-white flex items-center"
@@ -61,7 +61,7 @@ const Navbar = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
               onClick={toggleMobileMenu}
-              className="text-white focus:outline-none relative z-50"
+              className="text-white focus:outline-none relative z-50 mt-2 md:mt-0"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -76,7 +76,7 @@ const Navbar = () => {
                   transition={{ duration: 0.3 }}
                   className="absolute top-full left-0 w-full bg-space-dark/95 backdrop-blur-md shadow-lg py-4 border-t border-space-cyan/20"
                 >
-                  <div className="container mx-auto px-6">
+                  <div className="container mx-auto px-6 flex flex-col items-center">
                     {navigation.map((item, index) => (
                       <motion.a
                         key={item.name}
@@ -97,7 +97,7 @@ const Navbar = () => {
           </>
         ) : (
           <motion.div 
-            className="flex space-x-1"
+            className="flex space-x-1 mx-auto md:mx-0"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
