@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from 'react';
 import GradientButton from './ui/GradientButton';
 import { motion } from 'framer-motion';
+import { ArrowDown } from 'lucide-react';
 
 const HeroSection = () => {
   const orbitRef = useRef<HTMLDivElement>(null);
@@ -75,9 +76,9 @@ const HeroSection = () => {
                 transition={{ duration: 0.7, delay: 0.3 }}
                 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight text-glow"
               >
-                FUTURE
+                Do zero à
                 <br />
-                <span className="gradient-text">TECHNOLOGY</span>
+                <span className="gradient-text">tecnologia avançada</span>
               </motion.h1>
               
               <motion.p 
@@ -86,18 +87,37 @@ const HeroSection = () => {
                 transition={{ duration: 0.6, delay: 0.5 }}
                 className="text-space-light mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed"
               >
-                Tonytm Images produce various kind of high-quality contents constantly updated 
-                and those are being distributed all around the world, after discussion about 
-                the image production, it would be advisable to be presented by the educated 
-                professionals, if you're good at that green technology they always welcome...
+                Aprenda a desenvolver tecnologias espaciais e domine a atividade mais 
+                lucrativa no mercado de design para lançamentos futurísticos.
               </motion.p>
               
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.7 }}
+                className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
               >
-                <GradientButton href="#service" className="neon-border">VIEW</GradientButton>
+                <GradientButton href="#campaign" className="neon-border">INSCREVA-SE</GradientButton>
+                <div className="hidden md:flex items-center text-space-light">
+                  <span className="mr-2 text-sm">De 16 a 19 de outubro</span>
+                  <span className="text-space-cyan">•</span>
+                  <span className="ml-2 text-sm">Treinamento online e gratuito</span>
+                </div>
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 1.2 }}
+                className="mt-16 hidden md:block"
+              >
+                <a 
+                  href="#campaign" 
+                  className="inline-flex flex-col items-center text-space-light hover:text-space-cyan transition-colors"
+                >
+                  <span className="text-sm mb-2">Saiba mais</span>
+                  <ArrowDown className="animate-bounce" size={20} />
+                </a>
               </motion.div>
             </motion.div>
           </div>
@@ -114,12 +134,18 @@ const HeroSection = () => {
               }}
               className="relative"
             >
-              <div className="relative z-10">
+              <div className="relative z-10 flex items-center justify-center">
+                <div className="absolute w-[420px] h-[420px] bg-space-cyan rounded-full opacity-10 blur-3xl"></div>
                 <img 
                   src="/lovable-uploads/70883f83-dcb4-488d-8673-b9d5c27eed46.png" 
                   alt="Astronaut in space" 
-                  className="max-w-full h-auto object-contain animate-float-gentle"
+                  className="max-w-full h-auto object-contain animate-float-gentle relative z-10"
                 />
+                
+                {/* Floating elements inspired by the reference image */}
+                <div className="absolute -top-10 -right-10 w-20 h-20 bg-space-pink/20 rounded-lg backdrop-blur-md border border-space-pink/30 animate-float-gentle z-0"></div>
+                <div className="absolute bottom-10 -left-10 w-16 h-16 bg-space-cyan/20 rounded-lg backdrop-blur-md border border-space-cyan/30 animate-float-gentle delay-75 z-0"></div>
+                <div className="absolute top-20 -left-16 w-12 h-12 bg-space-gold/20 rounded-lg backdrop-blur-md border border-space-gold/30 animate-float-gentle delay-150 z-0"></div>
               </div>
               <div className="absolute inset-0 bg-glow-circle opacity-40 filter blur-xl"></div>
             </motion.div>

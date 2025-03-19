@@ -2,6 +2,7 @@
 import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
+import EventSection from '@/components/EventSection';
 import TechGrid from '@/components/TechGrid';
 import Footer from '@/components/Footer';
 import { motion, useAnimation } from 'framer-motion';
@@ -15,8 +16,8 @@ const Index = () => {
     
     // Show welcome toast
     setTimeout(() => {
-      toast.success("Welcome to CBX Growth", {
-        description: "Explore the future of technology with us",
+      toast.success("Bem-vindo ao CBX Growth", {
+        description: "Explore o futuro da tecnologia espacial conosco",
         duration: 5000,
       });
     }, 1500);
@@ -31,6 +32,7 @@ const Index = () => {
     >
       <Navbar />
       <HeroSection />
+      <EventSection />
       <TechGrid />
       <Footer />
     </motion.div>

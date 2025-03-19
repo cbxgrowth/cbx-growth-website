@@ -39,7 +39,7 @@ const Navbar = () => {
     <nav
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        scrolled ? 'bg-space-dark/80 backdrop-blur-md py-3 shadow-lg' : 'py-6'
+        scrolled ? 'bg-space-dark/90 backdrop-blur-md py-3 shadow-lg' : 'py-6'
       )}
     >
       <div className="container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between">
@@ -90,6 +90,14 @@ const Navbar = () => {
                         {item.name}
                       </motion.a>
                     ))}
+                    <motion.button
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3, delay: navigation.length * 0.1 }}
+                      className="mt-4 px-6 py-2 bg-space-cyan text-space-dark font-medium rounded-md hover:bg-space-cyan/80 transition-colors"
+                    >
+                      INSCREVA-SE
+                    </motion.button>
                   </div>
                 </motion.div>
               )}
@@ -97,7 +105,7 @@ const Navbar = () => {
           </>
         ) : (
           <motion.div 
-            className="flex space-x-1 mx-auto md:mx-0"
+            className="flex space-x-6 items-center mx-auto md:mx-0"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
@@ -115,6 +123,14 @@ const Navbar = () => {
                 {item.name}
               </motion.a>
             ))}
+            <motion.button
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, delay: navigation.length * 0.1 }}
+              className="ml-4 px-6 py-2 bg-space-cyan text-space-dark font-medium rounded-md hover:bg-space-cyan/80 transition-colors"
+            >
+              INSCREVA-SE
+            </motion.button>
           </motion.div>
         )}
       </div>
