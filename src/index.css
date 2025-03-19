@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
@@ -62,19 +63,18 @@
   }
 }
 
-/* Fix the @font-face declaration */
 @font-face {
   font-family: 'Space Grotesk';
   font-style: normal;
   font-weight: 300 700;
   font-display: swap;
-  /* The src should point to the actual font files, not the CSS */
   src: url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 }
 
 @layer components {
   .glass-panel {
-    @apply bg-opacity-10 bg-white backdrop-filter backdrop-blur-sm border border-white border-opacity-20 rounded-lg shadow-xl;
+    @apply bg-opacity-20 backdrop-filter backdrop-blur-md border border-space-cyan/30 rounded-lg shadow-xl;
+    box-shadow: 0 10px 30px -10px rgba(10, 25, 47, 0.5), 0 0 20px rgba(100, 255, 218, 0.1);
   }
   
   .tech-circle {
@@ -100,10 +100,44 @@
   
   .glow-circle {
     @apply absolute inset-0 rounded-full;
-    box-shadow: 0 0 60px 20px rgba(100, 255, 218, 0.1);
+    box-shadow: 0 0 60px 20px rgba(100, 255, 218, 0.15);
   }
   
   .orbit-line {
     @apply absolute border border-space-cyan border-opacity-20 rounded-full;
+  }
+  
+  .neon-border {
+    @apply relative border border-transparent;
+    box-shadow: 0 0 5px 1px rgba(100, 255, 218, 0.3);
+  }
+  
+  .neon-border::before {
+    content: '';
+    @apply absolute -inset-[1px] rounded-lg;
+    background: linear-gradient(90deg, #64FFDA, #8A7CFB, #FF36AB, #64FFDA);
+    background-size: 400% 100%;
+    animation: shine 3s linear infinite;
+    z-index: -1;
+  }
+  
+  .cyber-grid {
+    @apply bg-cyber-grid bg-[size:30px_30px];
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+  }
+}
+
+@keyframes shine {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }

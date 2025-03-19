@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Menu, X } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -42,44 +43,79 @@ const Navbar = () => {
       )}
     >
       <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
-        <a href="#" className="text-xl font-bold text-white">
-          <span className="text-space-cyan">CBX</span> Growth
-        </a>
+        <motion.a 
+          href="#" 
+          className="text-xl font-bold text-white flex items-center"
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <span className="text-space-cyan mr-1">CBX</span> Growth
+          <span className="ml-1 w-2 h-2 rounded-full bg-space-cyan animate-pulse block"></span>
+        </motion.a>
 
         {isMobile ? (
           <>
-            <button
+            <motion.button
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
               onClick={toggleMobileMenu}
-              className="text-white focus:outline-none"
+              className="text-white focus:outline-none relative z-50"
+              aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+            </motion.button>
 
-            {mobileMenuOpen && (
-              <div className="absolute top-full left-0 w-full bg-space-dark/95 backdrop-blur-md shadow-lg py-4 animate-fade-in">
-                <div className="container mx-auto px-6">
-                  {navigation.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      className="block py-3 text-space-light hover:text-space-cyan transition-colors"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      {item.name}
-                    </a>
-                  ))}
-                </div>
-              </div>
-            )}
+            <AnimatePresence>
+              {mobileMenuOpen && (
+                <motion.div 
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.3 }}
+                  className="absolute top-full left-0 w-full bg-space-dark/95 backdrop-blur-md shadow-lg py-4 border-t border-space-cyan/20"
+                >
+                  <div className="container mx-auto px-6">
+                    {navigation.map((item, index) => (
+                      <motion.a
+                        key={item.name}
+                        href={item.href}
+                        className="block py-3 text-space-light hover:text-space-cyan transition-colors"
+                        onClick={() => setMobileMenuOpen(false)}
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.3, delay: index * 0.1 }}
+                      >
+                        {item.name}
+                      </motion.a>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </>
         ) : (
-          <div className="flex space-x-1">
-            {navigation.map((item) => (
-              <a key={item.name} href={item.href} className="nav-link">
+          <motion.div 
+            className="flex space-x-1"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            {navigation.map((item, index) => (
+              <motion.a 
+                key={item.name} 
+                href={item.href} 
+                className="nav-link"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
+                whileHover={{ y: -2 }}
+              >
                 {item.name}
-              </a>
+              </motion.a>
             ))}
-          </div>
+          </motion.div>
         )}
       </div>
     </nav>
