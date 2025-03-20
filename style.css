@@ -12,6 +12,9 @@ Text Domain: cbxgrowth
 Tags: space, technology, innovation, responsive, modern
 */
 
+/* Import Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
 /* Reset e estilos básicos */
 * {
     margin: 0;
@@ -20,10 +23,15 @@ Tags: space, technology, innovation, responsive, modern
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
     color: #f8f9fa;
     background-color: #0a0b0c;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
 }
 
 a {
