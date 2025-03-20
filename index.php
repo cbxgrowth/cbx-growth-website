@@ -5,30 +5,42 @@
     <div class="container">
         <?php
         if ( have_posts() ) :
+            echo '<div class="post-grid">';
+            
             while ( have_posts() ) :
                 the_post();
                 ?>
                 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                    <?php if ( has_post_thumbnail() ) : ?>
+                        <div class="post-thumbnail">
+                            <a href="<?php the_permalink(); ?>">
+                                <?php the_post_thumbnail( 'medium' ); ?>
+                            </a>
+                        </div>
+                    <?php endif; ?>
+                    
                     <header class="entry-header">
-                        <?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+                        <?php the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' ); ?>
                     </header>
 
                     <div class="entry-content">
-                        <?php
-                        the_content();
-                        wp_link_pages(
-                            array(
-                                'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'cbxgrowth' ),
-                                'after'  => '</div>',
-                            )
-                        );
-                        ?>
+                        <?php the_excerpt(); ?>
+                        <a href="<?php the_permalink(); ?>" class="read-more">
+                            <?php esc_html_e( 'Ler mais', 'cbxgrowth' ); ?>
+                        </a>
                     </div>
                 </article>
                 <?php
             endwhile;
+            
+            echo '</div>';
 
-            the_posts_navigation();
+            the_posts_pagination(
+                array(
+                    'prev_text' => esc_html__( 'Anterior', 'cbxgrowth' ),
+                    'next_text' => esc_html__( 'Próximo', 'cbxgrowth' ),
+                )
+            );
         else :
             ?>
             <section class="no-results">
@@ -47,4 +59,7 @@
     </div>
 </main>
 
-<?php get_footer(); ?>
+<?php 
+get_sidebar();
+get_footer(); 
+?>
