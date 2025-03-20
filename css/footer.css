@@ -1,0 +1,20 @@
+
+/* Footer styles for CBX Growth Theme */
+.site-footer {
+    background-color: #0a0b0c;
+    border-top: 1px solid rgba(94, 234, 212, 0.2);
+    padding: 40px 0;
+    text-align: center;
+}
+
+.site-info {
+    margin-bottom: 20px;
+}
+
+#footer-menu {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 20px;
+    margin-top: 20px;
+}

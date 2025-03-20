@@ -1,0 +1,31 @@
+
+/* Responsive styles for CBX Growth Theme */
+@media (max-width: 768px) {
+    .main-navigation ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .entry-title {
+        font-size: 1.8rem;
+    }
+    
+    .post-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+    
+    .single .post-navigation .nav-links {
+        flex-direction: column;
+    }
+    
+    .single .post-navigation .nav-previous,
+    .single .post-navigation .nav-next {
+        max-width: 100%;
+        margin-bottom: 15px;
+    }
+    
+    #footer-menu {
+        flex-direction: column;
+        gap: 10px;
+    }
+}

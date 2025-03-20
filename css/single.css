@@ -1,0 +1,62 @@
+
+/* Single post styles for CBX Growth Theme */
+.single .entry-header {
+    margin-bottom: 30px;
+}
+
+.single .entry-meta {
+    font-size: 0.9rem;
+    color: #adb5bd;
+    margin-top: 10px;
+}
+
+.single .post-thumbnail {
+    margin-bottom: 30px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.single .post-thumbnail img {
+    width: 100%;
+    height: auto;
+}
+
+.single .entry-footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(94, 234, 212, 0.2);
+}
+
+.single .cat-links,
+.single .tags-links {
+    margin-bottom: 10px;
+    display: block;
+}
+
+.single .post-navigation {
+    margin-top: 40px;
+    padding: 20px 0;
+    border-top: 1px solid rgba(94, 234, 212, 0.2);
+    border-bottom: 1px solid rgba(94, 234, 212, 0.2);
+}
+
+.single .post-navigation .nav-links {
+    display: flex;
+    justify-content: space-between;
+}
+
+.single .post-navigation .nav-previous,
+.single .post-navigation .nav-next {
+    max-width: 48%;
+}
+
+.single .post-navigation .nav-subtitle {
+    display: block;
+    font-size: 0.8rem;
+    color: #adb5bd;
+    margin-bottom: 5px;
+}
+
+.single .post-navigation .nav-title {
+    font-size: 1.1rem;
+}
