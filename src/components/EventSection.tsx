@@ -124,8 +124,8 @@ const EventSection = () => {
           >
             <div className="relative">
               <img 
-                src="/lovable-uploads/a7b122b2-40fe-4ec8-8a70-fdf7569468aa.png" 
-                alt="Astronaut looking at the future" 
+                src="/lovable-uploads/6acaec1d-bea8-4509-9dc5-f6f5c21c402b.png" 
+                alt="Instrutor do curso" 
                 className="rounded-lg max-w-full mx-auto"
               />
               <div className="absolute inset-0 bg-glow-circle opacity-30 filter blur-xl"></div>
