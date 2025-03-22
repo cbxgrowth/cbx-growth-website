@@ -122,13 +122,19 @@ const EventSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 1 }}
           >
-            <div className="relative">
+            <div className="relative group">
+              <div className="absolute inset-0 bg-gradient-to-tr from-space-purple/40 via-space-cyan/30 to-transparent rounded-lg z-10 mix-blend-overlay group-hover:opacity-70 transition-opacity duration-500"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-space-dark/50 to-transparent rounded-lg z-10 mix-blend-multiply"></div>
+              
               <img 
                 src="/lovable-uploads/3766087c-2b2a-47bc-852d-d8587ce1cb55.png" 
                 alt="Instrutor do curso" 
-                className="rounded-lg max-w-full mx-auto"
+                className="rounded-lg max-w-full mx-auto relative z-0 transition-transform duration-700 ease-in-out group-hover:scale-[1.02]"
               />
+              
               <div className="absolute inset-0 bg-glow-circle opacity-30 filter blur-xl"></div>
+              
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-space-cyan/20 to-space-purple/20 rounded-lg blur opacity-40 group-hover:opacity-60 transition-opacity duration-700 z-0"></div>
             </div>
           </motion.div>
         </div>
