@@ -94,7 +94,38 @@ add_action( 'widgets_init', 'cbxgrowth_widgets_init' );
  * Enqueue scripts and styles.
  */
 function cbxgrowth_scripts() {
+    // Enqueue main stylesheet
     wp_enqueue_style( 'cbxgrowth-style', get_stylesheet_uri(), array(), CBXGROWTH_VERSION );
+    
+    // Enqueue custom fonts
+    wp_enqueue_style( 'cbxgrowth-fonts', get_template_directory_uri() . '/css/fonts.css', array(), CBXGROWTH_VERSION );
+    
+    // Enqueue base styles
+    wp_enqueue_style( 'cbxgrowth-base', get_template_directory_uri() . '/css/base.css', array(), CBXGROWTH_VERSION );
+    
+    // Enqueue header styles
+    wp_enqueue_style( 'cbxgrowth-header', get_template_directory_uri() . '/css/header.css', array(), CBXGROWTH_VERSION );
+    
+    // Enqueue content styles
+    wp_enqueue_style( 'cbxgrowth-content', get_template_directory_uri() . '/css/content.css', array(), CBXGROWTH_VERSION );
+    
+    // Enqueue single post styles
+    wp_enqueue_style( 'cbxgrowth-single', get_template_directory_uri() . '/css/single.css', array(), CBXGROWTH_VERSION );
+    
+    // Enqueue navigation styles
+    wp_enqueue_style( 'cbxgrowth-navigation', get_template_directory_uri() . '/css/navigation.css', array(), CBXGROWTH_VERSION );
+    
+    // Enqueue sidebar styles
+    wp_enqueue_style( 'cbxgrowth-sidebar', get_template_directory_uri() . '/css/sidebar.css', array(), CBXGROWTH_VERSION );
+    
+    // Enqueue comments styles
+    wp_enqueue_style( 'cbxgrowth-comments', get_template_directory_uri() . '/css/comments.css', array(), CBXGROWTH_VERSION );
+    
+    // Enqueue footer styles
+    wp_enqueue_style( 'cbxgrowth-footer', get_template_directory_uri() . '/css/footer.css', array(), CBXGROWTH_VERSION );
+    
+    // Enqueue responsive styles
+    wp_enqueue_style( 'cbxgrowth-responsive', get_template_directory_uri() . '/css/responsive.css', array(), CBXGROWTH_VERSION );
     
     // Navigation JavaScript
     wp_enqueue_script( 'cbxgrowth-navigation', get_template_directory_uri() . '/js/navigation.js', array(), CBXGROWTH_VERSION, true );
@@ -108,14 +139,21 @@ add_action( 'wp_enqueue_scripts', 'cbxgrowth_scripts' );
 /**
  * Custom template tags for this theme.
  */
-// require get_template_directory() . '/inc/template-tags.php';
+require get_template_directory() . '/inc/template-tags.php';
 
 /**
  * Functions which enhance the theme by hooking into WordPress.
  */
-// require get_template_directory() . '/inc/template-functions.php';
+require get_template_directory() . '/inc/template-functions.php';
 
 /**
  * Customizer additions.
  */
-// require get_template_directory() . '/inc/customizer.php';
+require get_template_directory() . '/inc/customizer.php';
+
+/**
+ * Load Jetpack compatibility file.
+ */
+if ( defined( 'JETPACK__VERSION' ) ) {
+    require get_template_directory() . '/inc/jetpack.php';
+}
