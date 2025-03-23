@@ -10,11 +10,12 @@ const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const isMobile = useIsMobile();
 
+  // Updated navigation items as requested
   const navigation = [
-    { name: 'ABOUT', href: '#about' },
-    { name: 'CAMPAIGN', href: '#campaign' },
-    { name: 'SERVICE', href: '#service' },
-    { name: 'PR CENTER', href: '#pr-center' },
+    { name: 'INÍCIO', href: '#inicio' },
+    { name: 'PRODUTO', href: '#produto' },
+    { name: 'MÉTODO', href: '#metodo' },
+    { name: 'BLOG', href: '#blog' },
   ];
 
   useEffect(() => {
