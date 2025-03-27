@@ -110,7 +110,7 @@ const EventSection = () => {
               className="mt-10"
             >
               <GradientButton href="#service" className="w-full md:w-auto justify-center">
-                ME INSCREVER
+                APLICAR MÉTODO
               </GradientButton>
             </motion.div>
           </motion.div>
