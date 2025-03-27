@@ -69,9 +69,9 @@ const TechGrid = () => {
           <div className="inline-block mb-4 px-6 py-1 bg-space-blue/30 backdrop-blur-sm border border-space-cyan/20 rounded-full">
             <h2 className="text-sm font-medium text-space-cyan">NOSSOS SERVIÇOS</h2>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold gradient-text mb-6">FUTURE TECHNOLOGY</h1>
+          <h1 className="text-4xl md:text-5xl font-bold gradient-text mb-6">MENTALIDADE CBX</h1>
           <p className="text-space-light max-w-xl mx-auto">
-            Explorando o limite do que é possível com soluções digitais de próxima geração.
+            Método validado com soluções growth de aceleração e crescimento de negócios.
           </p>
         </motion.div>
 
@@ -137,11 +137,11 @@ const TechGrid = () => {
               className="tech-circle w-60 h-60 bg-tech-circle border-2 border-space-cyan/30 backdrop-blur-md"
             >
               <div className="text-center p-4">
-                <h2 className="text-2xl font-semibold mb-1 neon-text">FUTURE</h2>
-                <h2 className="text-2xl font-semibold mb-4 gradient-text">TECHNOLOGY</h2>
+                <h2 className="text-2xl font-semibold mb-1 neon-text">GROWTH</h2>
+                <h2 className="text-2xl font-semibold mb-4 gradient-text">APLICADO</h2>
                 <p className="text-xs text-space-light px-4 leading-relaxed">
-                  Tecnologias de ponta e soluções digitais constantemente atualizadas 
-                  e distribuídas ao redor do mundo, após discussão sobre desenvolvimento
+                Escalar uma empresa é um grande desafio. Pensando nisso desenvolvemos uma metodologia 
+                  para ME's e EPP's acelerarem seus resultados.
                 </p>
               </div>
               <div className="absolute inset-0 rounded-full bg-neon-glow-gradient animate-glow-pulse"></div>
@@ -156,33 +156,33 @@ const TechGrid = () => {
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
           >
             <TechItem 
-              title="SATELLITE" 
-              description="Tecnologia avançada de satélite para redes de comunicação global e aplicações de sensoriamento remoto."
-              icon={<Satellite className="text-space-cyan" size={24} />}
+              title="CONVERSÕES" 
+              description="Pensamos desde o anúncio até a conversão final em vendas, seja no ecommerce ou vendas complexas."
+              icon={<Conversões className="text-space-cyan" size={24} />}
               className="lg:col-start-1 flex flex-col items-center text-center"
               delay={0.1}
               color="space-cyan"
             />
             <TechItem 
-              title="PROCESSING" 
-              description="Soluções de computação quântica e processamento de ponta para desafios complexos de análise de dados."
-              icon={<Cpu className="text-space-purple" size={24} />}
+              title="MULTI SKILL" 
+              description="Nossa equipe possui habilidades para desenvolver processos de vendas com foco no desempenho e alta qualidade."
+              icon={<Skill className="text-space-purple" size={24} />}
               className="lg:col-start-2 flex flex-col items-center text-center"
               delay={0.2}
               color="space-purple"
             />
             <TechItem 
-              title="EXPLORATION" 
-              description="Tecnologias de exploração espacial projetadas para expandir as fronteiras do que é possível além da Terra."
+              title="EXPERIMENTOS" 
+              description="Nossa metodologia de experimentação é feita sob medida para o seu negócio e gerar testes em escala."
               icon={<Rocket className="text-space-pink" size={24} />}
               className="lg:col-start-3 flex flex-col items-center text-center"
               delay={0.3}
               color="space-pink"
             />
             <TechItem 
-              title="GLOBAL NETWORK" 
-              description="Infraestruturas de rede global interconectadas que permitem comunicação e compartilhamento de dados perfeitos."
-              icon={<Globe className="text-space-gold" size={24} />}
+              title="ANÁLISES" 
+              description="Dashboards pensados estrategicamente para análise de dados e elaboração de ações de growth e performance."
+              icon={<Dados className="text-space-gold" size={24} />}
               className="lg:col-start-4 flex flex-col items-center text-center"
               delay={0.4}
               color="space-gold"
