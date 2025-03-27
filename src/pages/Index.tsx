@@ -16,8 +16,8 @@ const Index = () => {
     
     // Show welcome toast with a slight delay for better UX
     setTimeout(() => {
-      toast.success("Bem-vindo ao CBX Growth", {
-        description: "Explore o futuro da tecnologia espacial conosco",
+      toast.success("Bem-vindo a CBX Growth", {
+        description: "Explore o futuro do Growth conosco",
         duration: 5000,
         position: "bottom-right",
       });
@@ -29,7 +29,7 @@ const Index = () => {
       className="min-h-screen bg-space-dark text-white"
       initial={{ opacity: 0, y: 20 }}
       animate={controls}
-      transition={{ duration: 0.6 }}
+      transition={{ duration: 0.9 }}
     >
       <Navbar />
       <HeroSection />
