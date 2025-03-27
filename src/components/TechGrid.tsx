@@ -141,7 +141,7 @@ const TechGrid = () => {
                 <h2 className="text-2xl font-semibold mb-4 gradient-text">APLICADO</h2>
                 <p className="text-xs text-space-light px-4 leading-relaxed">
                 Escalar uma empresa é um grande desafio. Pensando nisso desenvolvemos uma metodologia 
-                  para ME's e EPP's acelerarem seus resultados.
+                para ME's e EPP's acelerarem seus resultados.
                 </p>
               </div>
               <div className="absolute inset-0 rounded-full bg-neon-glow-gradient animate-glow-pulse"></div>

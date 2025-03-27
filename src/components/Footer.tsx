@@ -128,13 +128,13 @@ const Footer = () => {
         <div className="container mx-auto px-6 md:px-12">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-space-light text-sm mb-4 md:mb-0">
-              © 2023 CBX Growth. All rights reserved.
+              © 2025 CBX Growth. Todos os direitos reservados.
             </p>
             <div className="flex items-center gap-8">
               <div className="flex space-x-6">
-                <a href="#" className="text-space-light hover:text-space-cyan transition-colors duration-300">Privacy Policy</a>
-                <a href="#" className="text-space-light hover:text-space-cyan transition-colors duration-300">Terms of Service</a>
-                <a href="#" className="text-space-light hover:text-space-cyan transition-colors duration-300">Contact</a>
+                <a href="#" className="text-space-light hover:text-space-cyan transition-colors duration-300">Política de Privacidade</a>
+                <a href="#" className="text-space-light hover:text-space-cyan transition-colors duration-300">Termos de Serviços</a>
+                <a href="#" className="text-space-light hover:text-space-cyan transition-colors duration-300">Contato</a>
               </div>
               <div className="flex space-x-4">
                 <a href="#" className="w-8 h-8 rounded-full bg-space-blue/30 flex items-center justify-center border border-space-cyan/20 hover:bg-space-blue/50 transition-colors">
