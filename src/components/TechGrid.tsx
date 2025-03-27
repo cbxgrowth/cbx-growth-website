@@ -71,7 +71,7 @@ const TechGrid = () => {
           </div>
           <h1 className="text-4xl md:text-5xl font-bold gradient-text mb-6">MENTALIDADE CBX</h1>
           <p className="text-space-light max-w-xl mx-auto">
-            Método validado com soluções growth de aceleração e crescimento de negócios.
+            Método validado com soluções de growth para aceleração e crescimento de negócios.
           </p>
         </motion.div>
 

@@ -111,7 +111,7 @@ const HeroSection = () => {
                 className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
               >
                 <GradientButton href="#campaign" className="neon-border hover-scale">
-                  SAIBA MAIS
+                  Conversar com especialista CBX
                 </GradientButton>
                 <div className="hidden md:flex items-center space-x-4">
                   <div className="bg-space-blue/20 backdrop-blur-sm border border-space-cyan/20 rounded-full px-4 py-1 text-sm">
