@@ -44,25 +44,24 @@ const Footer = () => {
             variants={itemVariants}
             className="inline-block mb-4 px-6 py-1 bg-space-blue/30 backdrop-blur-sm border border-space-cyan/20 rounded-full"
           >
-            <h2 className="text-sm font-medium text-space-cyan">DISCOVER THE FUTURE</h2>
+            <h2 className="text-sm font-medium text-space-cyan">PARCERIA ESTRATÉGICA</h2>
           </motion.div>
           
           <motion.h1
             variants={itemVariants}
             className="text-6xl md:text-8xl font-bold mb-8 tracking-wider text-transparent bg-clip-text bg-gradient-to-b from-space-cyan via-space-purple to-space-pink"
           >
-            F U T U R E
+            PARCERIA
             <br />
-            TECHNOLOGY
+            ESTRATÉGICA
           </motion.h1>
           
           <motion.p
             variants={itemVariants}
             className="text-space-light mb-12 max-w-2xl mx-auto leading-relaxed"
           >
-            Tonytm Images produz diversos tipos de conteúdos de alta qualidade constantemente atualizados 
-            e distribuídos por todo o mundo. Após discussão sobre a produção de imagens, seria aconselhável 
-            ser apresentado por profissionais qualificados. Se você é bom em tecnologia verde, eles sempre dão as boas-vindas...
+            Temos o objetivo de ser a melhor parceira para a sua empresa  
+            e conseguir resultados reais com ações de marketing digital.
           </motion.p>
           
           <motion.div
@@ -74,8 +73,8 @@ const Footer = () => {
               className="cosmic-card p-6 flex flex-col items-center max-w-[220px] hover-lift"
             >
               <Star className="text-space-cyan mb-3" size={24} />
-              <h3 className="text-lg font-medium mb-2">Inovação</h3>
-              <p className="text-sm text-space-light">Expandindo fronteiras com soluções tecnológicas de ponta</p>
+              <h3 className="text-lg font-medium mb-2">Inovação e Mídia</h3>
+              <p className="text-sm text-space-light">Aplicando ações estratégicas e de gerenciamento em diversos canais de mídia paga.</p>
             </motion.div>
             
             <motion.div 
@@ -84,7 +83,7 @@ const Footer = () => {
             >
               <Code className="text-space-pink mb-3" size={24} />
               <h3 className="text-lg font-medium mb-2">Desenvolvimento</h3>
-              <p className="text-sm text-space-light">Construindo o futuro com precisão e visão especializada</p>
+              <p className="text-sm text-space-light">Criando sua loja vitual, websites e landing pages com foco no desempenho e conversões.</p>
             </motion.div>
             
             <motion.div 
@@ -93,7 +92,7 @@ const Footer = () => {
             >
               <Zap className="text-space-gold mb-3" size={24} />
               <h3 className="text-lg font-medium mb-2">Performance</h3>
-              <p className="text-sm text-space-light">Entregando velocidade e confiabilidade excepcionais</p>
+              <p className="text-sm text-space-light">Entregando velocidade e confiabilidade excepcionais durante todo o processo.</p>
             </motion.div>
           </motion.div>
           
@@ -113,10 +112,10 @@ const Footer = () => {
             variants={itemVariants}
             className="cosmic-card p-8 max-w-2xl mx-auto"
           >
-            <h3 className="text-2xl font-bold mb-4 neon-text">Pronto para começar sua jornada?</h3>
+            <h3 className="text-2xl font-bold mb-4 neon-text">Pronto para começar sua jornada de Growth?</h3>
             <p className="text-space-light mb-6">
-              Junte-se a nós na construção da tecnologia do amanhã. Nossa equipe de especialistas está 
-              pronta para ajudar você a transformar sua visão em realidade.
+              Junte-se a nós na construção de um novo patamar de empresa. Nossa equipe de especialistas está 
+              pronta para ajudar você a transformar seu negócio.
             </p>
             <GradientButton className="flex items-center gap-2 mx-auto hover-scale">
               Entre em Contato <ArrowRight size={16} />

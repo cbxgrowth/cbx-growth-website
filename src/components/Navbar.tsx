@@ -118,7 +118,7 @@ const Navbar = () => {
                       transition={{ duration: 0.3, delay: navigation.length * 0.1 }}
                       className="mt-4 px-6 py-2 bg-space-cyan text-space-dark font-medium rounded-md hover:bg-space-cyan/80 transition-colors"
                     >
-                      INSCREVA-SE
+                      Assinar Newsletter
                     </motion.button>
                   </div>
                 </motion.div>
@@ -149,7 +149,7 @@ const Navbar = () => {
               whileTap={{ scale: 0.95 }}
               className="ml-4 px-6 py-2 bg-space-cyan text-space-dark font-medium rounded-md hover:bg-space-cyan/80 transition-colors"
             >
-              INSCREVA-SE
+              Quero aplicar esse método
             </motion.button>
           </motion.div>
         )}

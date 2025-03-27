@@ -56,10 +56,10 @@ const EventSection = () => {
             transition={{ duration: 0.8 }}
           >
             <div className="text-left mb-12">
-              <h2 className="text-sm text-space-cyan font-medium uppercase tracking-wider mb-2">Cronograma do evento</h2>
-              <h1 className="text-4xl md:text-5xl font-bold mb-6">O que você irá <span className="gradient-text">aprender?</span></h1>
+              <h2 className="text-sm text-space-cyan font-medium uppercase tracking-wider mb-2">Growth Marketing e Sales</h2>
+              <h1 className="text-4xl md:text-5xl font-bold mb-6">Growth aplicado em <span className="gradient-text">performance</span></h1>
               <p className="text-space-light max-w-xl">
-                Junte-se a nós para explorar o futuro da tecnologia e desenvolvimento espacial. Nosso evento irá transformar sua visão sobre o que é possível.
+                Metodologia 100% focada no alcance de resultados em até 90 dias. Nosso método é um funil contínuo e otimizado para o seu negócio crescer.
               </p>
             </div>
 
@@ -67,36 +67,36 @@ const EventSection = () => {
               <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-space-cyan/30 z-0"></div>
               
               <EventCard
-                icon={<Monitor className="text-white" size={18} />}
-                date="16/10, às 19h"
-                title="Introdução à Tecnologia Espacial"
-                description="Tudo o que você precisa saber para entrar e prosperar na área de tecnologia espacial e suas aplicações."
+                icon={<Corneta className="text-white" size={18} />}
+                date="Aquisição"
+                title="Geração de Leads"
+                description="Atraimos e direcionamos potenciais clientes para os canais de vendas."
                 delay={0.1}
               />
               
               <EventCard
                 icon={<Layers className="text-white" size={18} />}
-                date="17/10, às 19h"
-                title="Criação de Layouts Futurísticos"
-                description="Aprenda a criar interfaces futuristas com tecnologias de ponta para aplicações espaciais."
+                date="Engajamento"
+                title="Jornada do Consumidor"
+                description="Desenvolvemos o processo e jornada online do potencial cliente para a conversão em vendas."
                 delay={0.2}
                 color="bg-space-purple"
               />
               
               <EventCard
                 icon={<Code className="text-white" size={18} />}
-                date="18/10, às 19h"
-                title="Desenvolvimento Avançado"
-                description="Instalação e desenvolvimento de projetos com inteligência artificial e tecnologias emergentes."
+                date="Conversão"
+                title="Lead para Cliente"
+                description="Atraimos, engajamos, agora convertemos o Lead em Cliente com o objetivo fidelizá-lo."
                 delay={0.3}
                 color="bg-space-pink"
               />
               
               <EventCard
                 icon={<Calendar className="text-white" size={18} />}
-                date="19/10, às 19h"
-                title="Lançamento de Projetos"
-                description="Divulgação e lançamento de projetos espaciais com estratégias de marketing eficientes."
+                date="Retenção"
+                title="Rentabilidade e crescimento"
+                description="Mantemos clientes que compraram, transformando-os em consumidores recorrentes e defensores da marca."
                 delay={0.4}
                 color="bg-space-gold"
               />
@@ -151,13 +151,13 @@ const EventSection = () => {
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="md:w-2/3">
               <h2 className="text-3xl font-bold text-space-dark mb-4">
-                Um intensivo sobre Tecnologia Espacial. De graça.
-                <span className="block mt-2">Vai ficar de fora?</span>
+                Não perca espaço para o seu concorrente. Conte conosco!
+                <span className="block mt-2">Converse com nossos especialistas.</span>
               </h2>
             </div>
             <div className="md:w-1/3 flex justify-end">
               <GradientButton href="#service" className="bg-space-dark border-0 hover:bg-space-dark/80">
-                ME INSCREVER AGORA
+                Acelerar meus resultados
               </GradientButton>
             </div>
           </div>
