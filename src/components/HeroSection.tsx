@@ -182,39 +182,37 @@ const HeroSection = () => {
               }}
               className="relative"
             >
-              <div className="relative z-10 flex items-center justify-center">
-                <div className="absolute w-[420px] h-[420px] bg-space-cyan rounded-full opacity-10 blur-3xl animate-breathe"></div>
-                <img 
-                  src="/lovable-uploads/64c73edc-d39a-4e77-b286-344a4b924cfb.png" 
-                  alt="Astronauta no espaço" 
-                  className="max-w-full h-auto object-contain animate-float-gentle relative z-10"
-                />
-                
-                {/* Floating elements */}
-                <motion.div 
-                  className="absolute -top-10 -right-10 w-20 h-20 bg-space-pink/20 rounded-lg backdrop-blur-md border border-space-pink/30 z-0 flex items-center justify-center"
-                  animate={{ y: [0, -10, 0], rotate: [0, 5, 0] }}
-                  transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
-                >
-                  <div className="w-3 h-3 bg-space-pink rounded-full animate-pulse-glow"></div>
-                </motion.div>
-                <motion.div 
-                  className="absolute bottom-10 -left-10 w-16 h-16 bg-space-cyan/20 rounded-lg backdrop-blur-md border border-space-cyan/30 z-0 flex items-center justify-center"
-                  animate={{ y: [0, 10, 0], rotate: [0, -5, 0] }}
-                  transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-                >
-                  <div className="w-2 h-2 bg-space-cyan rounded-full animate-pulse-glow"></div>
-                </motion.div>
-                <motion.div 
-                  className="absolute top-20 -left-16 w-12 h-12 bg-space-gold/20 rounded-lg backdrop-blur-md border border-space-gold/30 z-0 flex items-center justify-center"
-                  animate={{ y: [0, -8, 0], rotate: [0, -3, 0] }}
-                  transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-                >
-                  <div className="w-2 h-2 bg-space-gold rounded-full animate-pulse-glow"></div>
-                </motion.div>
-              </div>
-              <div className="absolute inset-0 bg-glow-circle opacity-40 filter blur-xl"></div>
+              <div className="absolute w-[420px] h-[420px] bg-space-cyan rounded-full opacity-10 blur-3xl animate-breathe"></div>
+              <img 
+                src="/lovable-uploads/ea5fc538-419f-4a54-9d5e-a5e13ac2f5a0.png" 
+                alt="Astronauta no espaço" 
+                className="max-w-full h-auto object-contain animate-float-gentle relative z-10"
+              />
+              
+              {/* Floating elements */}
+              <motion.div 
+                className="absolute -top-10 -right-10 w-20 h-20 bg-space-pink/20 rounded-lg backdrop-blur-md border border-space-pink/30 z-0 flex items-center justify-center"
+                animate={{ y: [0, -10, 0], rotate: [0, 5, 0] }}
+                transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
+              >
+                <div className="w-3 h-3 bg-space-pink rounded-full animate-pulse-glow"></div>
+              </motion.div>
+              <motion.div 
+                className="absolute bottom-10 -left-10 w-16 h-16 bg-space-cyan/20 rounded-lg backdrop-blur-md border border-space-cyan/30 z-0 flex items-center justify-center"
+                animate={{ y: [0, 10, 0], rotate: [0, -5, 0] }}
+                transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+              >
+                <div className="w-2 h-2 bg-space-cyan rounded-full animate-pulse-glow"></div>
+              </motion.div>
+              <motion.div 
+                className="absolute top-20 -left-16 w-12 h-12 bg-space-gold/20 rounded-lg backdrop-blur-md border border-space-gold/30 z-0 flex items-center justify-center"
+                animate={{ y: [0, -8, 0], rotate: [0, -3, 0] }}
+                transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+              >
+                <div className="w-2 h-2 bg-space-gold rounded-full animate-pulse-glow"></div>
+              </motion.div>
             </motion.div>
+            <div className="absolute inset-0 bg-glow-circle opacity-40 filter blur-xl"></div>
           </div>
         </div>
       </div>
