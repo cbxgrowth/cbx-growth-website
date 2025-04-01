@@ -133,5 +133,29 @@ export const keyframes = {
     '50%': {
       opacity: '1'
     }
+  },
+  'meteor-fly': {
+    '0%': {
+      transform: 'translateX(0) translateY(0) rotate(0deg)',
+      opacity: '1'
+    },
+    '70%': {
+      opacity: '1'
+    },
+    '100%': {
+      transform: 'translateX(500px) translateY(1000px) rotate(45deg)',
+      opacity: '0'
+    }
+  },
+  'meteor-glow': {
+    '0%': {
+      boxShadow: '0 0 10px 2px rgba(255, 255, 255, 0.7)'
+    },
+    '50%': {
+      boxShadow: '0 0 20px 4px rgba(255, 255, 255, 0.9)'
+    },
+    '100%': {
+      boxShadow: '0 0 10px 2px rgba(255, 255, 255, 0.7)'
+    }
   }
 };

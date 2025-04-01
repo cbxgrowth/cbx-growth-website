@@ -47,11 +47,11 @@ const HeroSection = () => {
   };
 
   return (
-    <section className="relative min-h-screen pt-28 pb-20 flex items-center overflow-hidden">
+    <section id="hero" className="relative min-h-screen pt-28 pb-20 flex items-center overflow-hidden">
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-neon-glow-gradient opacity-20 animate-glow-pulse"></div>
         
-        {/* Orbital Ring */}
+        {/* Orbital Ring - Expandido para conectar com o segundo painel */}
         <div
           ref={orbitRef}
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px]"
@@ -59,7 +59,36 @@ const HeroSection = () => {
           <div className="orbit-line w-full h-full animate-pulse-glow"></div>
           <div className="orbit-line w-[70%] h-[70%] top-[15%] left-[15%] animate-float-gentle"></div>
           <div className="orbit-line w-[40%] h-[40%] top-[30%] left-[30%] animate-rotate-slow"></div>
+          
+          {/* Extensão da órbita para conectar com o segundo painel */}
+          <div className="absolute w-[900px] h-[900px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border border-space-cyan/20 rounded-full z-0"></div>
+          <div className="absolute w-[1000px] h-[1000px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 border border-space-cyan/10 rounded-full z-0"></div>
         </div>
+        
+        {/* Meteoros animados */}
+        {[...Array(8)].map((_, i) => (
+          <motion.div 
+            key={i}
+            className={`absolute w-1 h-1 bg-white rounded-full meteor-trail z-10`}
+            initial={{ 
+              x: Math.random() * window.innerWidth,
+              y: -10,
+              opacity: 0.7,
+              scale: Math.random() * 0.5 + 0.5
+            }}
+            animate={{ 
+              x: `calc(${Math.random() * 100}vw - ${Math.random() * 200}px)`, 
+              y: `calc(${Math.random() * 100}vh + ${Math.random() * 200}px)`,
+              opacity: 0
+            }}
+            transition={{ 
+              duration: Math.random() * 8 + 7, 
+              ease: "linear",
+              repeat: Infinity,
+              delay: Math.random() * 15
+            }}
+          />
+        ))}
         
         {/* Background Particles */}
         <div className="absolute top-1/4 right-1/4 w-2 h-2 rounded-full bg-space-cyan animate-sparkle"></div>
@@ -156,8 +185,8 @@ const HeroSection = () => {
               <div className="relative z-10 flex items-center justify-center">
                 <div className="absolute w-[420px] h-[420px] bg-space-cyan rounded-full opacity-10 blur-3xl animate-breathe"></div>
                 <img 
-                  src="/lovable-uploads/8555eb6e-bfd8-4edb-a829-f9b8618e36ff.png" 
-                  alt="Astronaut in space" 
+                  src="/lovable-uploads/64c73edc-d39a-4e77-b286-344a4b924cfb.png" 
+                  alt="Astronauta no espaço" 
                   className="max-w-full h-auto object-contain animate-float-gentle relative z-10"
                 />
                 
