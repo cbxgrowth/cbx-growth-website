@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Satellite, Cpu, Rocket, Globe } from 'lucide-react';
+import { Satellite, Cpu, Rocket, Globe, BarChart3, Users, FlaskConical, LineChart } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
@@ -158,7 +158,7 @@ const TechGrid = () => {
             <TechItem 
               title="CONVERSÕES" 
               description="Pensamos desde o anúncio até a conversão final em vendas, seja no ecommerce ou vendas complexas."
-              icon={<Conversões className="text-space-cyan" size={24} />}
+              icon={<BarChart3 className="text-space-cyan" size={24} />}
               className="lg:col-start-1 flex flex-col items-center text-center"
               delay={0.1}
               color="space-cyan"
@@ -166,7 +166,7 @@ const TechGrid = () => {
             <TechItem 
               title="MULTI SKILL" 
               description="Nossa equipe possui habilidades para desenvolver processos de vendas com foco no desempenho e alta qualidade."
-              icon={<Skill className="text-space-purple" size={24} />}
+              icon={<Users className="text-space-purple" size={24} />}
               className="lg:col-start-2 flex flex-col items-center text-center"
               delay={0.2}
               color="space-purple"
@@ -182,7 +182,7 @@ const TechGrid = () => {
             <TechItem 
               title="ANÁLISES" 
               description="Dashboards pensados estrategicamente para análise de dados e elaboração de ações de growth e performance."
-              icon={<Dados className="text-space-gold" size={24} />}
+              icon={<LineChart className="text-space-gold" size={24} />}
               className="lg:col-start-4 flex flex-col items-center text-center"
               delay={0.4}
               color="space-gold"

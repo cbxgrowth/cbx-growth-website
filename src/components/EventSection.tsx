@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, Clock, Monitor, Layers, Code } from 'lucide-react';
+import { Calendar, Clock, Monitor, Layers, Code, Megaphone } from 'lucide-react';
 import GradientButton from './ui/GradientButton';
 import { cn } from '@/lib/utils';
 
@@ -67,7 +67,7 @@ const EventSection = () => {
               <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-space-cyan/30 z-0"></div>
               
               <EventCard
-                icon={<Corneta className="text-white" size={18} />}
+                icon={<Megaphone className="text-white" size={18} />}
                 date="Aquisição"
                 title="Geração de Leads"
                 description="Atraimos e direcionamos potenciais clientes para os canais de vendas."
