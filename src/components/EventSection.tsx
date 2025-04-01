@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Calendar, Clock, Monitor, Layers, Code, Megaphone } from 'lucide-react';
@@ -160,7 +159,7 @@ const EventSection = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-space-dark/50 to-transparent rounded-lg z-10 mix-blend-multiply"></div>
               
               <img 
-                src="/lovable-uploads/3766087c-2b2a-47bc-852d-d8587ce1cb55.png" 
+                src="/lovable-uploads/77a00950-d417-4718-a5cd-fcdc966d9316.png" 
                 alt="Instrutor do curso" 
                 className="rounded-lg max-w-full mx-auto relative z-0 transition-transform duration-700 ease-in-out group-hover:scale-[1.02]"
               />

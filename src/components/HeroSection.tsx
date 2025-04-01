@@ -185,7 +185,7 @@ const HeroSection = () => {
               <div className="relative z-10 flex items-center justify-center">
                 <div className="absolute w-[420px] h-[420px] bg-space-cyan rounded-full opacity-10 blur-3xl animate-breathe"></div>
                 <img 
-                  src="/lovable-uploads/64c73edc-d39a-4e77-b286-344a4b924cfb.png" 
+                  src="/lovable-uploads/09cb2e3b-54da-43b2-870a-9f46455b4b2c.png" 
                   alt="Astronauta no espaço" 
                   className="max-w-full h-auto object-contain animate-float-gentle relative z-10"
                 />
