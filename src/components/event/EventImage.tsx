@@ -16,8 +16,8 @@ const EventImage = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-space-dark/50 to-transparent rounded-lg z-10 mix-blend-multiply"></div>
         
         <img 
-          src="/lovable-uploads/77a00950-d417-4718-a5cd-fcdc966d9316.png" 
-          alt="Instrutor do curso" 
+          src="/lovable-uploads/49a44b66-20bf-4cae-82a7-48164331df1d.png" 
+          alt="Onboarding CBX - Etapas de implementação" 
           className="rounded-lg max-w-full mx-auto relative z-0 transition-transform duration-700 ease-in-out group-hover:scale-[1.02]"
         />
         
