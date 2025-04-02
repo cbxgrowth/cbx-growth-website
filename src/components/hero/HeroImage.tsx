@@ -19,7 +19,7 @@ const HeroImage = () => {
       <div className="relative z-10 flex items-center justify-center">
         <div className="absolute w-[420px] h-[420px] bg-space-cyan rounded-full opacity-10 blur-3xl animate-breathe"></div>
         <img 
-          src="/lovable-uploads/09cb2e3b-54da-43b2-870a-9f46455b4b2c.png" 
+          src="/lovable-uploads/51a211a0-96b2-404e-abcb-f26b0c683071.png" 
           alt="Astronauta no espaço" 
           className="max-w-full h-auto object-contain animate-float-gentle relative z-10"
         />
