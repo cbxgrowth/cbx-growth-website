@@ -4,18 +4,21 @@ import { cn } from '@/lib/utils';
 import { Menu, X, Star } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const isMobile = useIsMobile();
 
-  // Updated navigation items as requested
+  // Updated navigation items with proper routes
   const navigation = [
-    { name: 'INÍCIO', href: '#inicio' },
-    { name: 'PRODUTO', href: '#produto' },
-    { name: 'MÉTODO', href: '#metodo' },
-    { name: 'BLOG', href: '#blog' },
+    { name: 'INÍCIO', href: '/' },
+    { name: 'PRODUTO', href: '/produto' },
+    { name: 'MÉTODO', href: '/metodo' },
+    { name: 'CASES', href: '/cases' },
+    { name: 'BLOG', href: '/blog' },
+    { name: 'CONTATO', href: '/contato' },
   ];
 
   useEffect(() => {
@@ -62,19 +65,20 @@ const Navbar = () => {
       )}
     >
       <div className="container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between">
-        <motion.a 
-          href="#" 
+        <motion.div 
           className="text-xl font-bold text-white flex items-center"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="mr-2 w-6 h-6 bg-space-blue/30 rounded-full border border-space-cyan/50 flex items-center justify-center">
-            <Star className="w-3 h-3 text-space-cyan" />
-          </div>
-          <span className="text-space-cyan mr-1">CBX</span> Growth
-          <span className="ml-1 w-2 h-2 rounded-full bg-space-cyan animate-pulse block"></span>
-        </motion.a>
+          <Link to="/" className="flex items-center">
+            <div className="mr-2 w-6 h-6 bg-space-blue/30 rounded-full border border-space-cyan/50 flex items-center justify-center">
+              <Star className="w-3 h-3 text-space-cyan" />
+            </div>
+            <span className="text-space-cyan mr-1">CBX</span> Growth
+            <span className="ml-1 w-2 h-2 rounded-full bg-space-cyan animate-pulse block"></span>
+          </Link>
+        </motion.div>
 
         {isMobile ? (
           <>
@@ -100,17 +104,21 @@ const Navbar = () => {
                 >
                   <div className="container mx-auto px-6 flex flex-col items-center">
                     {navigation.map((item, index) => (
-                      <motion.a
+                      <motion.div
                         key={item.name}
-                        href={item.href}
-                        className="block py-3 text-space-light hover:text-space-cyan transition-colors"
-                        onClick={() => setMobileMenuOpen(false)}
+                        className="w-full text-center"
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.3, delay: index * 0.1 }}
                       >
-                        {item.name}
-                      </motion.a>
+                        <Link 
+                          to={item.href}
+                          className="block py-3 text-space-light hover:text-space-cyan transition-colors"
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          {item.name}
+                        </Link>
+                      </motion.div>
                     ))}
                     <motion.button
                       initial={{ opacity: 0, y: 10 }}
@@ -133,15 +141,18 @@ const Navbar = () => {
             animate="visible"
           >
             {navigation.map((item, index) => (
-              <motion.a 
-                key={item.name} 
-                href={item.href} 
-                className="nav-link"
+              <motion.div 
+                key={item.name}
                 variants={itemVariants}
                 whileHover={{ y: -2 }}
               >
-                {item.name}
-              </motion.a>
+                <Link 
+                  to={item.href} 
+                  className="nav-link text-space-light hover:text-space-cyan transition-colors"
+                >
+                  {item.name}
+                </Link>
+              </motion.div>
             ))}
             <motion.button
               variants={itemVariants}

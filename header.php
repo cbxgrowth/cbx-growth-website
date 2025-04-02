@@ -35,9 +35,14 @@
                     array(
                         'theme_location' => 'menu-1',
                         'menu_id'        => 'primary-menu',
+                        'menu_class'     => 'primary-menu',
+                        'items_wrap'     => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+                        'theme_location' => 'menu-1',
                     )
                 );
                 ?>
+
+                <button class="cta-button">Quero aplicar esse método</button>
             </nav><!-- #site-navigation -->
         </div>
     </header><!-- #masthead -->
