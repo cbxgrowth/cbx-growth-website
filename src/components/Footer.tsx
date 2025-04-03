@@ -2,9 +2,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import GradientButton from './ui/GradientButton';
-import { ArrowRight, Star, Code, Zap, Github, Twitter, Linkedin } from 'lucide-react';
+import { ArrowRight, Star, Code, Zap, Instagram, Linkedin, MessageCircle } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Footer = () => {
+  const isMobile = useIsMobile();
+  
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { 
@@ -49,7 +52,7 @@ const Footer = () => {
           
           <motion.h1
             variants={itemVariants}
-            className="text-6xl md:text-8xl font-bold mb-8 tracking-wider text-transparent bg-clip-text bg-gradient-to-b from-space-cyan via-space-purple to-space-pink"
+            className={`${isMobile ? 'text-5xl' : 'text-6xl md:text-8xl'} font-bold mb-8 tracking-wider text-transparent bg-clip-text bg-gradient-to-b from-space-cyan via-space-purple to-space-pink`}
           >
             PARCERIA
             <br />
@@ -130,21 +133,21 @@ const Footer = () => {
             <p className="text-space-light text-sm mb-4 md:mb-0">
               © 2025 CBX Growth. Todos os direitos reservados.
             </p>
-            <div className="flex items-center gap-8">
-              <div className="flex space-x-6">
+            <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
+              <div className="flex space-x-4 md:space-x-6 mb-4 md:mb-0 flex-wrap justify-center">
                 <a href="#" className="text-space-light hover:text-space-cyan transition-colors duration-300">Política de Privacidade</a>
                 <a href="#" className="text-space-light hover:text-space-cyan transition-colors duration-300">Termos de Serviços</a>
                 <a href="#" className="text-space-light hover:text-space-cyan transition-colors duration-300">Contato</a>
               </div>
               <div className="flex space-x-4">
                 <a href="#" className="w-8 h-8 rounded-full bg-space-blue/30 flex items-center justify-center border border-space-cyan/20 hover:bg-space-blue/50 transition-colors">
-                  <Github size={16} className="text-space-light" />
-                </a>
-                <a href="#" className="w-8 h-8 rounded-full bg-space-blue/30 flex items-center justify-center border border-space-cyan/20 hover:bg-space-blue/50 transition-colors">
-                  <Twitter size={16} className="text-space-light" />
+                  <Instagram size={16} className="text-space-light" />
                 </a>
                 <a href="#" className="w-8 h-8 rounded-full bg-space-blue/30 flex items-center justify-center border border-space-cyan/20 hover:bg-space-blue/50 transition-colors">
                   <Linkedin size={16} className="text-space-light" />
+                </a>
+                <a href="#" className="w-8 h-8 rounded-full bg-space-blue/30 flex items-center justify-center border border-space-cyan/20 hover:bg-space-blue/50 transition-colors">
+                  <MessageCircle size={16} className="text-space-light" />
                 </a>
               </div>
             </div>

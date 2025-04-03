@@ -1,6 +1,6 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface PartnerLogoProps {
   src: string;
@@ -27,7 +27,7 @@ const PartnerLogo: React.FC<PartnerLogoProps> = ({ src, alt, link }) => {
         <img 
           src={src} 
           alt={alt} 
-          className="h-12 md:h-14 w-auto object-contain filter brightness-100"
+          className="h-16 md:h-20 w-auto object-contain filter brightness-100"
         />
       </a>
     </motion.div>
