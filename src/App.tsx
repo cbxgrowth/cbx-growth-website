@@ -12,6 +12,7 @@ import Metodo from "./pages/Metodo";
 import Cases from "./pages/Cases";
 import Blog from "./pages/Blog";
 import Contato from "./pages/Contato";
+import Sobre from "./pages/Sobre";
 import SplashScreen from "./components/animation/SplashScreen";
 
 const queryClient = new QueryClient();
@@ -31,9 +32,9 @@ const App = () => {
             <Route path="/produto" element={<Produto />} />
             <Route path="/metodo" element={<Metodo />} />
             <Route path="/cases" element={<Cases />} />
+            <Route path="/sobre" element={<Sobre />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/contato" element={<Contato />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
