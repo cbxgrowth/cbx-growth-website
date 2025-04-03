@@ -102,8 +102,8 @@ const Footer = () => {
           >
             <div className="absolute inset-0 bg-cta-gradient opacity-20 blur-md rounded-full"></div>
             <img 
-              src="/lovable-uploads/70883f83-dcb4-488d-8673-b9d5c27eed46.png" 
-              alt="Astronaut" 
+              src="/lovable-uploads/bc97236e-639c-4271-9679-c8e4d4b2e6d7.png" 
+              alt="Astronauta" 
               className="relative z-10 mx-auto h-auto max-h-80 object-contain animate-float-gentle" 
             />
           </motion.div>
