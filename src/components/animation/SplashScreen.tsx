@@ -41,7 +41,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onFinish }) => {
               className="relative z-10"
             >
               <img 
-                src="/lovable-uploads/1d70eff7-2af2-4a36-86a9-4d159674f1f4.png" 
+                src="/lovable-uploads/ce8a34c4-6656-4890-b493-a5309f2f4a5c.png" 
                 alt="CBX Growth Logo" 
                 className="w-64 h-64 md:w-80 md:h-80" 
               />
