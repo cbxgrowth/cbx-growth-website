@@ -49,12 +49,12 @@ const PartnersSection = () => {
     { 
       src: "/lovable-uploads/57a08f11-3954-4943-bed2-7bb9805bad60.png",
       alt: "Kommo Partner",
-      link: "https://www.kommo.com"
+      link: "https://www.kommo.com/br/parceiros/encontrar-parceiro/cbx-growth/"
     },
     { 
       src: "/lovable-uploads/22c49c67-3b22-4c23-8887-99c4324edc9e.png",
       alt: "Tray",
-      link: "https://www.tray.com.br"
+      link: "https://www.tray.com.br/parceria/cbx/"
     },
     { 
       src: "/lovable-uploads/5f32dd47-b02f-4a2f-aa54-18e08a899edd.png",
