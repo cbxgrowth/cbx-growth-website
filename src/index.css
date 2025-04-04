@@ -94,7 +94,7 @@
   }
   
   .gradient-text {
-    @apply font-bold text-transparent bg-clip-text bg-gradient-to-r from-space-cyan via-space-purple to-space-pink;
+    @apply font-bold text-transparent bg-clip-text bg-gradient-to-r from-space-cyan via-space-light to-space-cyan;
   }
   
   .glow {
@@ -103,7 +103,7 @@
   
   .glow::before {
     content: '';
-    @apply absolute -inset-0.5 bg-gradient-to-r from-space-cyan to-space-purple rounded-lg blur opacity-30 transition duration-1000 group-hover:opacity-70 animate-pulse-glow;
+    @apply absolute -inset-0.5 bg-gradient-to-r from-space-cyan to-space-cyan rounded-lg blur opacity-30 transition duration-1000 group-hover:opacity-70 animate-pulse-glow;
   }
   
   .glow-circle {
@@ -123,7 +123,7 @@
   .neon-border::before {
     content: '';
     @apply absolute -inset-[1px] rounded-lg;
-    background: linear-gradient(90deg, #64FFDA, #8A7CFB, #FF36AB, #64FFDA);
+    background: linear-gradient(90deg, #64FFDA, #33C3F0, #64FFDA);
     background-size: 400% 100%;
     animation: shine 3s linear infinite;
     z-index: -1;
@@ -170,7 +170,7 @@
   
   .cosmic-card::before {
     content: '';
-    @apply absolute top-0 left-0 w-full h-full bg-gradient-to-br from-space-purple/5 to-space-cyan/5 opacity-30;
+    @apply absolute top-0 left-0 w-full h-full bg-gradient-to-br from-space-blue/5 to-space-cyan/5 opacity-30;
     z-index: -1;
   }
   

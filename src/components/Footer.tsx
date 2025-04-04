@@ -2,7 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import GradientButton from './ui/GradientButton';
-import { ArrowRight, Star, Code, Zap, Instagram, Linkedin, MessageCircle } from 'lucide-react';
+import { ArrowRight, Star, Code, Zap, Instagram, Linkedin, MessageSquare } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const Footer = () => {
@@ -31,8 +31,8 @@ const Footer = () => {
       
       {/* Animated particles */}
       <div className="absolute top-1/4 right-1/4 w-2 h-2 rounded-full bg-space-cyan animate-sparkle"></div>
-      <div className="absolute top-3/4 left-1/4 w-1 h-1 rounded-full bg-space-purple animate-sparkle delay-[1s]"></div>
-      <div className="absolute top-1/3 left-2/3 w-1.5 h-1.5 rounded-full bg-space-pink animate-sparkle delay-[1.5s]"></div>
+      <div className="absolute top-3/4 left-1/4 w-1 h-1 rounded-full bg-space-cyan animate-sparkle delay-[1s]"></div>
+      <div className="absolute top-1/3 left-2/3 w-1.5 h-1.5 rounded-full bg-space-cyan animate-sparkle delay-[1.5s]"></div>
       <div className="absolute bottom-1/4 right-1/3 w-1 h-1 rounded-full bg-space-gold animate-sparkle delay-[0.5s]"></div>
       
       <div className="container mx-auto px-6 md:px-12 relative z-10">
@@ -52,7 +52,7 @@ const Footer = () => {
           
           <motion.h1
             variants={itemVariants}
-            className={`${isMobile ? 'text-5xl' : 'text-6xl md:text-8xl'} font-bold mb-8 tracking-wider text-transparent bg-clip-text bg-gradient-to-b from-space-cyan via-space-purple to-space-pink`}
+            className={`${isMobile ? 'text-4xl' : 'text-6xl md:text-8xl'} font-bold mb-8 tracking-wider text-transparent bg-clip-text bg-gradient-to-b from-space-cyan via-space-light to-space-cyan`}
           >
             PARCERIA
             <br />
@@ -84,7 +84,7 @@ const Footer = () => {
               variants={itemVariants}
               className="cosmic-card p-6 flex flex-col items-center max-w-[220px] hover-lift"
             >
-              <Code className="text-space-pink mb-3" size={24} />
+              <Code className="text-space-cyan mb-3" size={24} />
               <h3 className="text-lg font-medium mb-2">Desenvolvimento</h3>
               <p className="text-sm text-space-light">Criando sua loja vitual, websites e landing pages com foco no desempenho e conversões.</p>
             </motion.div>
@@ -103,7 +103,7 @@ const Footer = () => {
             variants={itemVariants}
             className="relative w-full max-w-lg mx-auto mb-16"
           >
-            <div className="absolute inset-0 bg-cta-gradient opacity-20 blur-md rounded-full"></div>
+            <div className="absolute inset-0 bg-cyan-gradient opacity-20 blur-md rounded-full"></div>
             <img 
               src="/lovable-uploads/bc97236e-639c-4271-9679-c8e4d4b2e6d7.png" 
               alt="Astronauta" 
@@ -115,7 +115,7 @@ const Footer = () => {
             variants={itemVariants}
             className="cosmic-card p-8 max-w-2xl mx-auto"
           >
-            <h3 className="text-2xl font-bold mb-4 neon-text">Pronto para começar sua jornada de Growth?</h3>
+            <h3 className="text-2xl font-bold mb-4 text-space-cyan">Pronto para começar sua jornada de Growth?</h3>
             <p className="text-space-light mb-6">
               Junte-se a nós na construção de um novo patamar de empresa. Nossa equipe de especialistas está 
               pronta para ajudar você a transformar seu negócio.
@@ -147,7 +147,7 @@ const Footer = () => {
                   <Linkedin size={16} className="text-space-light" />
                 </a>
                 <a href="#" className="w-8 h-8 rounded-full bg-space-blue/30 flex items-center justify-center border border-space-cyan/20 hover:bg-space-blue/50 transition-colors">
-                  <MessageCircle size={16} className="text-space-light" />
+                  <MessageSquare size={16} className="text-space-light" />
                 </a>
               </div>
             </div>

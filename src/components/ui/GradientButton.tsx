@@ -26,8 +26,8 @@ const GradientButton = ({
   const buttonClasses = cn(
     "relative overflow-hidden group rounded-md",
     "transition-all duration-300 ease-out transform hover:scale-[1.01]",
-    animated ? "before:absolute before:inset-0 before:bg-cta-gradient before:transition-all" : "",
-    animated ? "before:animate-shimmer before:bg-[length:200%_100%]" : "bg-cta-gradient",
+    animated ? "before:absolute before:inset-0 before:bg-cyan-gradient before:transition-all" : "",
+    animated ? "before:animate-shimmer before:bg-[length:200%_100%]" : "bg-cyan-gradient",
     className
   );
 
