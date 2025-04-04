@@ -8,6 +8,7 @@ import PartnersSection from '@/components/PartnersSection';
 import Footer from '@/components/Footer';
 import PageLayout from '@/components/layout/PageLayout';
 import usePageInitialization from '@/hooks/usePageInitialization';
+import LeadCaptureForm from '@/components/LeadCaptureForm';
 
 const Index = () => {
   const { controls } = usePageInitialization();
@@ -17,6 +18,7 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <EventSection />
+      <LeadCaptureForm />
       <TechGrid />
       <PartnersSection />
       <Footer />

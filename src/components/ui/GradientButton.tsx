@@ -8,6 +8,7 @@ interface GradientButtonProps {
   className?: string;
   href?: string;
   animated?: boolean;
+  type?: 'button' | 'submit' | 'reset';
 }
 
 const GradientButton = ({ 
@@ -15,7 +16,8 @@ const GradientButton = ({
   onClick, 
   className,
   href,
-  animated = true 
+  animated = true,
+  type = 'button'
 }: GradientButtonProps) => {
   const ButtonContent = () => (
     <div className="relative z-10 px-8 py-3 font-medium text-white">
@@ -40,7 +42,7 @@ const GradientButton = ({
   }
 
   return (
-    <button onClick={onClick} className={buttonClasses}>
+    <button type={type} onClick={onClick} className={buttonClasses}>
       <ButtonContent />
     </button>
   );
