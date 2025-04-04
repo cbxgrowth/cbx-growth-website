@@ -1,44 +1,36 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { User, Mail, Phone, Building, Briefcase, Users, DollarSign, Target } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
-
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from './ui/form';
+import { Input } from './ui/input';
+import { Textarea } from './ui/textarea';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import GradientButton from './ui/GradientButton';
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from './ui/collapsible';
-import { Drawer, DrawerClose, DrawerContent, DrawerDescription, DrawerFooter, DrawerHeader, DrawerTitle, DrawerTrigger } from './ui/drawer';
+import { CheckCircle2, Clock, Rocket, Send, Star } from 'lucide-react';
+import { toast } from 'sonner';
 
 const formSchema = z.object({
-  name: z.string().min(2, { message: 'Nome deve ter pelo menos 2 caracteres' }),
-  email: z.string().email({ message: 'Email inválido' }).refine(email => email.includes('@') && !email.includes('@gmail.com') && !email.includes('@hotmail.com') && !email.includes('@outlook.com'), {
-    message: 'Por favor, use seu email corporativo'
-  }),
-  whatsapp: z.string().min(11, { message: 'WhatsApp inválido, inclua DDD' }),
+  name: z.string().min(3, { message: 'Nome precisa ter pelo menos 3 caracteres' }),
+  email: z.string().email({ message: 'Email corporativo inválido' })
+    .refine(email => email.includes('@') && !email.includes('@gmail.com') && !email.includes('@hotmail.com') && !email.includes('@outlook.com'), {
+      message: 'Por favor, use seu email corporativo'
+    }),
+  whatsapp: z.string().min(10, { message: 'Número de WhatsApp inválido' }),
   company: z.string().min(2, { message: 'Nome da empresa é obrigatório' }),
   segment: z.string().min(1, { message: 'Selecione um segmento' }),
-  salespeople: z.string().min(1, { message: 'Selecione uma opção' }),
-  revenue: z.string().min(1, { message: 'Selecione uma opção' }),
-  goals: z.string().min(10, { message: 'Compartilhe seus objetivos (mín. 10 caracteres)' }),
+  salesPeople: z.string().min(1, { message: 'Informe quantos vendedores possui' }),
+  revenue: z.string().min(1, { message: 'Selecione o faturamento médio' }),
+  objectives: z.string().min(10, { message: 'Descreva seus objetivos em pelo menos 10 caracteres' }),
 });
 
 type FormValues = z.infer<typeof formSchema>;
 
 const LeadCaptureForm = () => {
-  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -47,166 +39,164 @@ const LeadCaptureForm = () => {
       whatsapp: '',
       company: '',
       segment: '',
-      salespeople: '',
+      salesPeople: '',
       revenue: '',
-      goals: '',
+      objectives: '',
     },
   });
 
-  const onSubmit = (data: FormValues) => {
-    console.log('Form submitted:', data);
-    // Here you would typically send the data to your backend or CRM
+  const handleSubmit = async (values: FormValues) => {
+    setIsSubmitting(true);
     
-    toast({
-      title: "Formulário enviado com sucesso!",
-      description: "Um especialista CBX entrará em contato em breve.",
-      duration: 5000,
-    });
-    
-    form.reset();
-  };
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
+    // Simulate API call with a delay
+    setTimeout(() => {
+      console.log('Form submitted:', values);
+      toast.success('Formulário enviado com sucesso!', {
+        description: 'Em breve, nossa equipe entrará em contato com você.',
+      });
+      form.reset();
+      setIsSubmitting(false);
+    }, 1500);
   };
 
   return (
-    <section id="lead-form" className="py-24 relative overflow-hidden">
-      <div className="container mx-auto px-6 md:px-12">
+    <section className="py-24 relative overflow-hidden bg-space-dark">
+      <div className="absolute inset-0 bg-space-mesh opacity-30"></div>
+      
+      {/* Animated effects */}
+      <div className="absolute top-20 left-1/4 w-64 h-64 bg-space-cyan/20 rounded-full filter blur-3xl"></div>
+      <div className="absolute bottom-20 right-1/4 w-64 h-64 bg-space-gold/10 rounded-full filter blur-3xl"></div>
+      
+      <div className="container mx-auto px-6 md:px-12 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          transition={{ duration: 0.7 }}
+          className="text-center mb-12"
         >
           <div className="inline-block mb-4 px-6 py-1 bg-space-blue/30 backdrop-blur-sm border border-space-cyan/20 rounded-full">
-            <h2 className="text-sm font-medium text-space-cyan">TRANSFORMAÇÃO DIGITAL</h2>
+            <h2 className="text-sm font-medium text-space-cyan">FORMULÁRIO DE CONTATO</h2>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">ACELERE SEUS <span className="text-space-cyan">RESULTADOS</span></h1>
+          
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-space-cyan via-white to-space-cyan">
+            Transforme Seu Negócio
+          </h2>
+          
           <p className="text-space-light max-w-2xl mx-auto">
-            Preencha o formulário abaixo e descubra como nossa metodologia pode impulsionar seu negócio com estratégias de growth personalizadas.
+            Preencha o formulário abaixo para iniciar sua jornada de crescimento exponencial.
+            Nossa equipe irá analisar suas informações e entrar em contato para uma conversa estratégica.
           </p>
         </motion.div>
-
-        <div className="flex flex-col lg:flex-row gap-10 items-center">
-          <motion.div 
-            className="w-full lg:w-1/2 cosmic-card p-8 relative overflow-hidden"
-            initial={{ opacity: 0, x: -50 }}
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+          {/* Form column */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="bg-space-blue/20 backdrop-blur-md rounded-2xl border border-space-cyan/10 p-8"
           >
-            <div className="absolute -top-24 -right-24 w-64 h-64 bg-space-cyan/10 rounded-full filter blur-3xl"></div>
-            <div className="absolute -bottom-32 -left-32 w-64 h-64 bg-space-cyan/5 rounded-full filter blur-3xl"></div>
-            
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 relative z-10">
+              <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <FormField
                     control={form.control}
                     name="name"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="flex items-center gap-2">
-                          <User className="h-4 w-4 text-space-cyan" />
-                          Nome completo
-                        </FormLabel>
+                        <FormLabel className="text-space-light">Qual seu nome?</FormLabel>
                         <FormControl>
-                          <Input placeholder="Seu nome" {...field} />
+                          <Input 
+                            placeholder="Seu nome completo" 
+                            {...field} 
+                            className="bg-space-blue/30 border-space-cyan/30 text-white placeholder:text-space-light/70 focus:border-space-cyan"
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
-
+                  
                   <FormField
                     control={form.control}
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="flex items-center gap-2">
-                          <Mail className="h-4 w-4 text-space-cyan" />
-                          Email corporativo
-                        </FormLabel>
+                        <FormLabel className="text-space-light">Qual seu email corporativo?</FormLabel>
                         <FormControl>
-                          <Input placeholder="seu.email@empresa.com" {...field} />
+                          <Input 
+                            placeholder="seuemail@empresa.com" 
+                            {...field} 
+                            className="bg-space-blue/30 border-space-cyan/30 text-white placeholder:text-space-light/70 focus:border-space-cyan"
+                          />
                         </FormControl>
-                        <FormDescription className="text-xs">
-                          Utilizamos apenas para comunicação profissional
-                        </FormDescription>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
+                </div>
 
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <FormField
                     control={form.control}
                     name="whatsapp"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="flex items-center gap-2">
-                          <Phone className="h-4 w-4 text-space-cyan" />
-                          WhatsApp
-                        </FormLabel>
+                        <FormLabel className="text-space-light">Qual seu WhatsApp?</FormLabel>
                         <FormControl>
-                          <Input placeholder="(00) 00000-0000" {...field} />
+                          <Input 
+                            placeholder="(00) 00000-0000" 
+                            {...field} 
+                            className="bg-space-blue/30 border-space-cyan/30 text-white placeholder:text-space-light/70 focus:border-space-cyan"
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
-
+                  
                   <FormField
                     control={form.control}
                     name="company"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="flex items-center gap-2">
-                          <Building className="h-4 w-4 text-space-cyan" />
-                          Nome da empresa
-                        </FormLabel>
+                        <FormLabel className="text-space-light">Qual o nome da sua empresa?</FormLabel>
                         <FormControl>
-                          <Input placeholder="Sua empresa" {...field} />
+                          <Input 
+                            placeholder="Nome da sua empresa" 
+                            {...field} 
+                            className="bg-space-blue/30 border-space-cyan/30 text-white placeholder:text-space-light/70 focus:border-space-cyan"
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
+                </div>
 
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <FormField
                     control={form.control}
                     name="segment"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="flex items-center gap-2">
-                          <Briefcase className="h-4 w-4 text-space-cyan" />
-                          Segmento da empresa
-                        </FormLabel>
-                        <Select onValueChange={field.onChange} value={field.value}>
+                        <FormLabel className="text-space-light">Qual o segmento da empresa?</FormLabel>
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Selecione um segmento" />
+                            <SelectTrigger className="bg-space-blue/30 border-space-cyan/30 text-white">
+                              <SelectValue placeholder="Selecione o segmento" />
                             </SelectTrigger>
                           </FormControl>
-                          <SelectContent>
+                          <SelectContent className="bg-space-dark border-space-cyan/30">
                             <SelectItem value="ecommerce">E-commerce</SelectItem>
-                            <SelectItem value="saas">SaaS / Software</SelectItem>
-                            <SelectItem value="servicos">Prestação de Serviços</SelectItem>
-                            <SelectItem value="industria">Indústria</SelectItem>
+                            <SelectItem value="saas">SaaS / Tecnologia</SelectItem>
+                            <SelectItem value="servicos">Serviços</SelectItem>
+                            <SelectItem value="saude">Saúde</SelectItem>
+                            <SelectItem value="educacao">Educação</SelectItem>
                             <SelectItem value="varejo">Varejo</SelectItem>
-                            <SelectItem value="b2b">B2B</SelectItem>
+                            <SelectItem value="industria">Indústria</SelectItem>
                             <SelectItem value="outro">Outro</SelectItem>
                           </SelectContent>
                         </Select>
@@ -214,56 +204,25 @@ const LeadCaptureForm = () => {
                       </FormItem>
                     )}
                   />
-
+                  
                   <FormField
                     control={form.control}
-                    name="salespeople"
+                    name="salesPeople"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="flex items-center gap-2">
-                          <Users className="h-4 w-4 text-space-cyan" />
-                          Quantidade de vendedores
-                        </FormLabel>
-                        <Select onValueChange={field.onChange} value={field.value}>
+                        <FormLabel className="text-space-light">Quantos vendedores possui?</FormLabel>
+                        <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Selecione uma opção" />
+                            <SelectTrigger className="bg-space-blue/30 border-space-cyan/30 text-white">
+                              <SelectValue placeholder="Número de vendedores" />
                             </SelectTrigger>
                           </FormControl>
-                          <SelectContent>
-                            <SelectItem value="1-5">1 a 5</SelectItem>
-                            <SelectItem value="6-15">6 a 15</SelectItem>
-                            <SelectItem value="16-30">16 a 30</SelectItem>
-                            <SelectItem value="31-50">31 a 50</SelectItem>
-                            <SelectItem value="51+">Mais de 50</SelectItem>
-                          </SelectContent>
-                        </Select>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-
-                  <FormField
-                    control={form.control}
-                    name="revenue"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="flex items-center gap-2">
-                          <DollarSign className="h-4 w-4 text-space-cyan" />
-                          Faturamento médio mensal
-                        </FormLabel>
-                        <Select onValueChange={field.onChange} value={field.value}>
-                          <FormControl>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Selecione uma opção" />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent>
-                            <SelectItem value="ate-50k">Até R$ 50 mil</SelectItem>
-                            <SelectItem value="50k-200k">R$ 50 mil a R$ 200 mil</SelectItem>
-                            <SelectItem value="200k-500k">R$ 200 mil a R$ 500 mil</SelectItem>
-                            <SelectItem value="500k-1M">R$ 500 mil a R$ 1 milhão</SelectItem>
-                            <SelectItem value="1M+">Acima de R$ 1 milhão</SelectItem>
+                          <SelectContent className="bg-space-dark border-space-cyan/30">
+                            <SelectItem value="0">Nenhum vendedor</SelectItem>
+                            <SelectItem value="1-5">1 a 5 vendedores</SelectItem>
+                            <SelectItem value="6-15">6 a 15 vendedores</SelectItem>
+                            <SelectItem value="16-30">16 a 30 vendedores</SelectItem>
+                            <SelectItem value="31+">Mais de 30 vendedores</SelectItem>
                           </SelectContent>
                         </Select>
                         <FormMessage />
@@ -274,18 +233,42 @@ const LeadCaptureForm = () => {
 
                 <FormField
                   control={form.control}
-                  name="goals"
+                  name="revenue"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="flex items-center gap-2">
-                        <Target className="h-4 w-4 text-space-cyan" />
-                        Objetivos que pretende alcançar conosco
-                      </FormLabel>
+                      <FormLabel className="text-space-light">Qual o faturamento médio mensal?</FormLabel>
+                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                        <FormControl>
+                          <SelectTrigger className="bg-space-blue/30 border-space-cyan/30 text-white">
+                            <SelectValue placeholder="Selecione o faturamento" />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent className="bg-space-dark border-space-cyan/30">
+                          <SelectItem value="ate-10k">Até R$ 10.000/mês</SelectItem>
+                          <SelectItem value="10k-50k">R$ 10.000 a R$ 50.000/mês</SelectItem>
+                          <SelectItem value="50k-100k">R$ 50.000 a R$ 100.000/mês</SelectItem>
+                          <SelectItem value="100k-500k">R$ 100.000 a R$ 500.000/mês</SelectItem>
+                          <SelectItem value="500k-1m">R$ 500.000 a R$ 1 milhão/mês</SelectItem>
+                          <SelectItem value="1m+">Acima de R$ 1 milhão/mês</SelectItem>
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+
+                <FormField
+                  control={form.control}
+                  name="objectives"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-space-light">Quais objetivos pretende alcançar conosco?</FormLabel>
                       <FormControl>
-                        <Input 
-                          placeholder="Compartilhe seus principais desafios e objetivos de negócio" 
+                        <Textarea 
+                          placeholder="Descreva seus principais objetivos..." 
                           {...field} 
-                          className="h-20" 
+                          rows={4}
+                          className="bg-space-blue/30 border-space-cyan/30 text-white placeholder:text-space-light/70 focus:border-space-cyan resize-none"
                         />
                       </FormControl>
                       <FormMessage />
@@ -293,119 +276,117 @@ const LeadCaptureForm = () => {
                   )}
                 />
 
-                <div className="pt-4">
-                  <GradientButton type="submit" className="w-full md:w-auto md:px-12 group">
-                    <span className="group-hover:translate-x-1 transition-transform inline-flex items-center gap-2">
-                      Solicitar contato de especialista
-                    </span>
-                  </GradientButton>
-                  
-                  <p className="text-xs text-space-light mt-4">
-                    Ao enviar o formulário, você concorda com nossa política de privacidade e 
-                    permite o contato de um especialista para auxiliá-lo com sua estratégia.
-                  </p>
-                </div>
+                <GradientButton 
+                  type="submit" 
+                  className="w-full mt-6 py-6 group"
+                  disabled={isSubmitting}
+                >
+                  <div className="flex items-center justify-center gap-2">
+                    {isSubmitting ? (
+                      <>
+                        <div className="animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full" />
+                        <span>Enviando...</span>
+                      </>
+                    ) : (
+                      <>
+                        <Send size={18} className="group-hover:translate-x-1 transition-transform duration-300" />
+                        <span>Enviar Formulário</span>
+                      </>
+                    )}
+                  </div>
+                </GradientButton>
               </form>
             </Form>
           </motion.div>
-
-          <motion.div 
-            className="w-full lg:w-1/2"
-            initial={{ opacity: 0, x: 50 }}
+          
+          {/* Info column */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="space-y-8"
           >
-            <div className="space-y-8">
-              <h2 className="text-3xl font-bold text-space-cyan mb-6">Por que contar com a CBX?</h2>
+            <div className="bg-space-blue/20 backdrop-blur-md rounded-2xl border border-space-cyan/10 p-8">
+              <h3 className="text-2xl font-bold mb-6 text-space-cyan flex items-center gap-2">
+                <Star className="text-space-gold" /> 
+                Metodologia CBX
+              </h3>
               
-              <motion.div
-                variants={containerVariants}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                className="space-y-6"
-              >
-                <motion.div variants={itemVariants} className="flex gap-4 items-start">
-                  <div className="tech-circle w-12 h-12 min-w-12 flex items-center justify-center">
-                    <span className="text-space-cyan text-xl font-bold">1</span>
+              <ul className="space-y-6">
+                <li className="flex gap-4">
+                  <div className="mt-1">
+                    <Rocket className="text-space-cyan" size={20} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-white">Metodologia exclusiva</h3>
-                    <p className="text-space-light">Nossa abordagem de Growth foi desenvolvida especificamente para o mercado brasileiro.</p>
+                    <h4 className="font-medium text-white mb-1">Análise Completa</h4>
+                    <p className="text-space-light text-sm">
+                      Analisamos seu negócio, concorrência e mercado para identificar oportunidades de crescimento e áreas de melhoria.
+                    </p>
                   </div>
-                </motion.div>
+                </li>
                 
-                <motion.div variants={itemVariants} className="flex gap-4 items-start">
-                  <div className="tech-circle w-12 h-12 min-w-12 flex items-center justify-center">
-                    <span className="text-space-cyan text-xl font-bold">2</span>
+                <li className="flex gap-4">
+                  <div className="mt-1">
+                    <Star className="text-space-gold" size={20} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-white">Equipe multidisciplinar</h3>
-                    <p className="text-space-light">Profissionais especialistas em áreas complementares focados em resultados.</p>
+                    <h4 className="font-medium text-white mb-1">Estratégia Personalizada</h4>
+                    <p className="text-space-light text-sm">
+                      Desenvolvemos uma estratégia sob medida para seus objetivos, considerando seu orçamento e prazo.
+                    </p>
                   </div>
-                </motion.div>
+                </li>
                 
-                <motion.div variants={itemVariants} className="flex gap-4 items-start">
-                  <div className="tech-circle w-12 h-12 min-w-12 flex items-center justify-center">
-                    <span className="text-space-cyan text-xl font-bold">3</span>
+                <li className="flex gap-4">
+                  <div className="mt-1">
+                    <CheckCircle2 className="text-space-cyan" size={20} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-white">Cases de sucesso</h3>
-                    <p className="text-space-light">38+ projetos executados com sucesso e mais de 240 profissionais impactados.</p>
+                    <h4 className="font-medium text-white mb-1">Implementação Ágil</h4>
+                    <p className="text-space-light text-sm">
+                      Implementamos as estratégias com agilidade, ajustando conforme necessário para garantir resultados.
+                    </p>
                   </div>
-                </motion.div>
+                </li>
                 
-                <motion.div variants={itemVariants} className="flex gap-4 items-start">
-                  <div className="tech-circle w-12 h-12 min-w-12 flex items-center justify-center">
-                    <span className="text-space-cyan text-xl font-bold">4</span>
+                <li className="flex gap-4">
+                  <div className="mt-1">
+                    <Clock className="text-space-gold" size={20} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-white">Foco em resultados</h3>
-                    <p className="text-space-light">Estratégias orientadas a dados para maximizar o ROI e impulsionar seu crescimento.</p>
+                    <h4 className="font-medium text-white mb-1">Monitoramento Contínuo</h4>
+                    <p className="text-space-light text-sm">
+                      Acompanhamos os resultados em tempo real, otimizando constantemente para maximizar o ROI.
+                    </p>
                   </div>
-                </motion.div>
-              </motion.div>
+                </li>
+              </ul>
+            </div>
+            
+            <div className="bg-space-blue/20 backdrop-blur-md rounded-2xl border border-space-cyan/10 p-8">
+              <h3 className="text-2xl font-bold mb-4 text-space-cyan">Depoimentos</h3>
               
-              <div className="mt-6 pt-4">
-                <Drawer>
-                  <DrawerTrigger asChild>
-                    <button className="text-space-cyan hover:text-white transition-colors underline underline-offset-4">
-                      Ver detalhes da metodologia CBX
-                    </button>
-                  </DrawerTrigger>
-                  <DrawerContent className="bg-space-blue border border-space-cyan/30">
-                    <DrawerHeader>
-                      <DrawerTitle className="text-space-cyan text-2xl">Metodologia CBX Growth</DrawerTitle>
-                      <DrawerDescription>
-                        Nossa abordagem exclusiva para crescimento acelerado
-                      </DrawerDescription>
-                    </DrawerHeader>
-                    <div className="p-4 space-y-4">
-                      <div className="cosmic-card p-4">
-                        <h4 className="text-space-cyan font-medium mb-2">1. Diagnóstico e Estratégia</h4>
-                        <p className="text-space-light text-sm">Análise completa do seu negócio, identificação de oportunidades e definição de KPIs.</p>
-                      </div>
-                      <div className="cosmic-card p-4">
-                        <h4 className="text-space-cyan font-medium mb-2">2. Implementação Técnica</h4>
-                        <p className="text-space-light text-sm">Configuração de ferramentas, automações e processos para execução do plano.</p>
-                      </div>
-                      <div className="cosmic-card p-4">
-                        <h4 className="text-space-cyan font-medium mb-2">3. Experimentação Contínua</h4>
-                        <p className="text-space-light text-sm">Ciclos de testes, medição e otimização para encontrar as estratégias mais eficientes.</p>
-                      </div>
-                      <div className="cosmic-card p-4">
-                        <h4 className="text-space-cyan font-medium mb-2">4. Escala e Otimização</h4>
-                        <p className="text-space-light text-sm">Ampliação das ações bem-sucedidas e refinamento contínuo dos resultados.</p>
-                      </div>
-                    </div>
-                    <DrawerFooter>
-                      <DrawerClose asChild>
-                        <GradientButton>Entendi</GradientButton>
-                      </DrawerClose>
-                    </DrawerFooter>
-                  </DrawerContent>
-                </Drawer>
+              <div className="space-y-6">
+                <div className="bg-space-blue/30 p-4 rounded-lg">
+                  <p className="text-space-light text-sm italic mb-3">
+                    "Desde que começamos a trabalhar com a CBX Growth, nosso negócio cresceu mais de 200% em apenas 6 meses. A equipe é extremamente profissional e comprometida com resultados."
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <p className="text-white font-medium">Ana Clara</p>
+                    <p className="text-space-cyan text-xs">CEO, TechSolutions</p>
+                  </div>
+                </div>
+                
+                <div className="bg-space-blue/30 p-4 rounded-lg">
+                  <p className="text-space-light text-sm italic mb-3">
+                    "A metodologia da CBX Growth transformou completamente nossa abordagem de marketing. Os resultados superaram todas as nossas expectativas."
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <p className="text-white font-medium">Marcelo Santos</p>
+                    <p className="text-space-cyan text-xs">Diretor, Innova Inc</p>
+                  </div>
+                </div>
               </div>
             </div>
           </motion.div>

@@ -2,7 +2,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import GradientButton from './ui/GradientButton';
-import { ArrowRight, Star, Code, Zap, Instagram, Linkedin, MessageSquare } from 'lucide-react';
+import { ArrowRight, Instagram, Linkedin, MessageSquare, Facebook, Mail, MapPin, Phone } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const Footer = () => {
@@ -25,109 +26,194 @@ const Footer = () => {
   };
 
   return (
-    <section className="py-32 relative overflow-hidden bg-space-gradient">
+    <footer className="relative overflow-hidden bg-space-gradient">
       <div className="absolute inset-0 bg-space-mesh opacity-50"></div>
       <div className="absolute inset-0 bg-neon-glow-gradient opacity-10"></div>
       
-      {/* Animated particles */}
-      <div className="absolute top-1/4 right-1/4 w-2 h-2 rounded-full bg-space-cyan animate-sparkle"></div>
-      <div className="absolute top-3/4 left-1/4 w-1 h-1 rounded-full bg-space-cyan animate-sparkle delay-[1s]"></div>
-      <div className="absolute top-1/3 left-2/3 w-1.5 h-1.5 rounded-full bg-space-cyan animate-sparkle delay-[1.5s]"></div>
-      <div className="absolute bottom-1/4 right-1/3 w-1 h-1 rounded-full bg-space-gold animate-sparkle delay-[0.5s]"></div>
-      
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={containerVariants}
-          className="text-center max-w-4xl mx-auto"
-        >
-          <motion.div 
-            variants={itemVariants}
-            className="inline-block mb-4 px-6 py-1 bg-space-blue/30 backdrop-blur-sm border border-space-cyan/20 rounded-full"
-          >
-            <h2 className="text-sm font-medium text-space-cyan">PARCERIA ESTRATÉGICA</h2>
-          </motion.div>
-          
-          <motion.h1
-            variants={itemVariants}
-            className={`${isMobile ? 'text-4xl' : 'text-6xl md:text-8xl'} font-bold mb-8 tracking-wider text-transparent bg-clip-text bg-gradient-to-b from-space-cyan via-space-light to-space-cyan`}
-          >
-            PARCERIA
-            <br />
-            ESTRATÉGICA
-          </motion.h1>
-          
-          <motion.p
-            variants={itemVariants}
-            className="text-space-light mb-12 max-w-2xl mx-auto leading-relaxed"
-          >
-            Temos o objetivo de ser a melhor parceira para a sua empresa  
-            e conseguir resultados reais com ações de marketing digital.
-          </motion.p>
-          
+      {/* Main footer content section */}
+      <section className="py-20 relative z-10">
+        <div className="container mx-auto px-6 md:px-12">
           <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
             variants={containerVariants}
-            className="flex flex-col md:flex-row items-center justify-center gap-8 mb-16"
+            className="text-center max-w-4xl mx-auto mb-16"
           >
             <motion.div 
               variants={itemVariants}
-              className="cosmic-card p-6 flex flex-col items-center max-w-[220px] hover-lift"
+              className="inline-block mb-4 px-6 py-1 bg-space-blue/30 backdrop-blur-sm border border-space-cyan/20 rounded-full"
             >
-              <Star className="text-space-cyan mb-3" size={24} />
-              <h3 className="text-lg font-medium mb-2">Inovação e Mídia</h3>
-              <p className="text-sm text-space-light">Aplicando ações estratégicas e de gerenciamento em diversos canais de mídia paga.</p>
+              <h2 className="text-sm font-medium text-space-cyan">PARCERIA ESTRATÉGICA</h2>
             </motion.div>
             
-            <motion.div 
+            <motion.h1
               variants={itemVariants}
-              className="cosmic-card p-6 flex flex-col items-center max-w-[220px] hover-lift"
+              className={`${isMobile ? 'text-4xl' : 'text-6xl md:text-7xl'} font-bold mb-8 tracking-wider text-transparent bg-clip-text bg-gradient-to-b from-space-cyan via-space-light to-space-cyan`}
             >
-              <Code className="text-space-cyan mb-3" size={24} />
-              <h3 className="text-lg font-medium mb-2">Desenvolvimento</h3>
-              <p className="text-sm text-space-light">Criando sua loja vitual, websites e landing pages com foco no desempenho e conversões.</p>
+              CRESCIMENTO
+              <br />
+              EXPONENCIAL
+            </motion.h1>
+            
+            <motion.p
+              variants={itemVariants}
+              className="text-space-light mb-12 max-w-2xl mx-auto leading-relaxed"
+            >
+              Temos o objetivo de ser a melhor parceira para a sua empresa  
+              e conseguir resultados reais com ações de marketing digital.
+            </motion.p>
+            
+            <motion.div
+              variants={itemVariants}
+              className="relative w-full max-w-lg mx-auto mb-16"
+            >
+              <div className="absolute inset-0 bg-cyan-gradient opacity-20 blur-md rounded-full"></div>
+              <img 
+                src="/lovable-uploads/6f98435d-af71-4a55-9e03-803c9ff925ec.png" 
+                alt="Foguete" 
+                className="relative z-10 mx-auto h-auto max-h-80 object-contain animate-float-gentle" 
+              />
             </motion.div>
             
-            <motion.div 
+            <motion.div
               variants={itemVariants}
-              className="cosmic-card p-6 flex flex-col items-center max-w-[220px] hover-lift"
+              className="cosmic-card p-8 max-w-2xl mx-auto"
             >
-              <Zap className="text-space-gold mb-3" size={24} />
-              <h3 className="text-lg font-medium mb-2">Performance</h3>
-              <p className="text-sm text-space-light">Entregando velocidade e confiabilidade excepcionais durante todo o processo.</p>
+              <h3 className="text-2xl font-bold mb-4 text-space-cyan">Pronto para começar sua jornada de Growth?</h3>
+              <p className="text-space-light mb-6">
+                Junte-se a nós na construção de um novo patamar de empresa. Nossa equipe de especialistas está 
+                pronta para ajudar você a transformar seu negócio.
+              </p>
+              <GradientButton className="flex items-center gap-2 mx-auto hover-scale" href="/contato">
+                Entre em Contato <ArrowRight size={16} />
+              </GradientButton>
             </motion.div>
           </motion.div>
           
-          <motion.div
-            variants={itemVariants}
-            className="relative w-full max-w-lg mx-auto mb-16"
-          >
-            <div className="absolute inset-0 bg-cyan-gradient opacity-20 blur-md rounded-full"></div>
-            <img 
-              src="/lovable-uploads/6f98435d-af71-4a55-9e03-803c9ff925ec.png" 
-              alt="Foguete" 
-              className="relative z-10 mx-auto h-auto max-h-80 object-contain animate-float-gentle" 
-            />
-          </motion.div>
-          
-          <motion.div
-            variants={itemVariants}
-            className="cosmic-card p-8 max-w-2xl mx-auto"
-          >
-            <h3 className="text-2xl font-bold mb-4 text-space-cyan">Pronto para começar sua jornada de Growth?</h3>
-            <p className="text-space-light mb-6">
-              Junte-se a nós na construção de um novo patamar de empresa. Nossa equipe de especialistas está 
-              pronta para ajudar você a transformar seu negócio.
-            </p>
-            <GradientButton className="flex items-center gap-2 mx-auto hover-scale">
-              Entre em Contato <ArrowRight size={16} />
-            </GradientButton>
-          </motion.div>
-        </motion.div>
-      </div>
+          {/* Footer Columns */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 py-12 border-t border-space-light/20">
+            {/* Column 1: About */}
+            <div>
+              <h3 className="text-xl font-bold mb-6 text-space-cyan">Sobre CBX Growth</h3>
+              <p className="text-space-light mb-6">
+                Somos especialistas em marketing digital, desenvolvimento web e estratégias de crescimento para negócios que buscam resultados acima da média.
+              </p>
+              
+              {/* Partner badges */}
+              <div className="flex flex-wrap gap-4 mt-6">
+                <div className="h-16 px-3 py-2 bg-white/10 backdrop-blur-sm rounded-md flex items-center justify-center">
+                  <img 
+                    src="/lovable-uploads/1d70eff7-2af2-4a36-86a9-4d159674f1f4.png" 
+                    alt="Google Partner" 
+                    className="h-10 object-contain" 
+                  />
+                </div>
+                <div className="h-16 px-3 py-2 bg-white/10 backdrop-blur-sm rounded-md flex items-center justify-center">
+                  <img 
+                    src="/lovable-uploads/64c73edc-d39a-4e77-b286-344a4b924cfb.png" 
+                    alt="Meta Partner" 
+                    className="h-10 object-contain" 
+                  />
+                </div>
+              </div>
+            </div>
+            
+            {/* Column 2: Links */}
+            <div>
+              <h3 className="text-xl font-bold mb-6 text-space-cyan">Navegação</h3>
+              <ul className="space-y-3">
+                <li>
+                  <Link to="/" className="text-space-light hover:text-space-cyan transition-colors">Início</Link>
+                </li>
+                <li>
+                  <Link to="/produto" className="text-space-light hover:text-space-cyan transition-colors">Produto</Link>
+                </li>
+                <li>
+                  <Link to="/metodo" className="text-space-light hover:text-space-cyan transition-colors">Método</Link>
+                </li>
+                <li>
+                  <Link to="/cases" className="text-space-light hover:text-space-cyan transition-colors">Cases</Link>
+                </li>
+                <li>
+                  <Link to="/sobre" className="text-space-light hover:text-space-cyan transition-colors">Sobre</Link>
+                </li>
+                <li>
+                  <Link to="/blog" className="text-space-light hover:text-space-cyan transition-colors">Blog</Link>
+                </li>
+                <li>
+                  <Link to="/contato" className="text-space-light hover:text-space-cyan transition-colors">Contato</Link>
+                </li>
+              </ul>
+            </div>
+            
+            {/* Column 3: Contact */}
+            <div>
+              <h3 className="text-xl font-bold mb-6 text-space-cyan">Contato</h3>
+              <ul className="space-y-4">
+                <li className="flex items-start">
+                  <MapPin size={18} className="text-space-cyan mr-2 mt-1 flex-shrink-0" />
+                  <span className="text-space-light">
+                    R. Sampaio Viana, 202 - Paraíso<br />
+                    São Paulo - SP, 04004-000
+                  </span>
+                </li>
+                <li className="flex items-center">
+                  <Phone size={18} className="text-space-cyan mr-2 flex-shrink-0" />
+                  <span className="text-space-light">(11) 9999-9999</span>
+                </li>
+                <li className="flex items-center">
+                  <Mail size={18} className="text-space-cyan mr-2 flex-shrink-0" />
+                  <a href="mailto:contato@cbxgrowth.com.br" className="text-space-light hover:text-space-cyan transition-colors">
+                    contato@cbxgrowth.com.br
+                  </a>
+                </li>
+              </ul>
+            </div>
+            
+            {/* Column 4: Social and Newsletter */}
+            <div>
+              <h3 className="text-xl font-bold mb-6 text-space-cyan">Siga-nos</h3>
+              <div className="flex space-x-4 mb-8">
+                <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" 
+                  className="w-10 h-10 rounded-full bg-space-blue/30 flex items-center justify-center border border-space-cyan/20 hover:bg-space-blue/50 transition-colors">
+                  <Instagram size={18} className="text-space-light" />
+                </a>
+                <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-space-blue/30 flex items-center justify-center border border-space-cyan/20 hover:bg-space-blue/50 transition-colors">
+                  <Linkedin size={18} className="text-space-light" />
+                </a>
+                <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-space-blue/30 flex items-center justify-center border border-space-cyan/20 hover:bg-space-blue/50 transition-colors">
+                  <Facebook size={18} className="text-space-light" />
+                </a>
+                <a href="https://whatsapp.com/" target="_blank" rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-full bg-space-blue/30 flex items-center justify-center border border-space-cyan/20 hover:bg-space-blue/50 transition-colors">
+                  <MessageSquare size={18} className="text-space-light" />
+                </a>
+              </div>
+              
+              <h3 className="text-xl font-bold mb-4 text-space-cyan">Newsletter</h3>
+              <p className="text-space-light mb-4 text-sm">
+                Assine nossa newsletter para receber as últimas notícias e atualizações.
+              </p>
+              <form className="flex flex-col space-y-3">
+                <input 
+                  type="email" 
+                  placeholder="Seu email corporativo" 
+                  className="px-4 py-3 bg-space-blue/30 border border-space-cyan/30 rounded-md text-white placeholder:text-space-light/70 focus:outline-none focus:border-space-cyan"
+                />
+                <GradientButton type="submit" className="w-full">
+                  Assinar
+                </GradientButton>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
       
-      <div className="mt-20 border-t border-space-light/20 pt-8">
+      {/* Footer bottom with copyright */}
+      <div className="border-t border-space-light/20 py-6 relative z-10">
         <div className="container mx-auto px-6 md:px-12">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-space-light text-sm mb-4 md:mb-0">
@@ -135,26 +221,15 @@ const Footer = () => {
             </p>
             <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
               <div className="flex space-x-4 md:space-x-6 mb-4 md:mb-0 flex-wrap justify-center">
-                <a href="#" className="text-space-light hover:text-space-cyan transition-colors duration-300">Política de Privacidade</a>
-                <a href="#" className="text-space-light hover:text-space-cyan transition-colors duration-300">Termos de Serviços</a>
-                <a href="#" className="text-space-light hover:text-space-cyan transition-colors duration-300">Contato</a>
-              </div>
-              <div className="flex space-x-4">
-                <a href="#" className="w-8 h-8 rounded-full bg-space-blue/30 flex items-center justify-center border border-space-cyan/20 hover:bg-space-blue/50 transition-colors">
-                  <Instagram size={16} className="text-space-light" />
-                </a>
-                <a href="#" className="w-8 h-8 rounded-full bg-space-blue/30 flex items-center justify-center border border-space-cyan/20 hover:bg-space-blue/50 transition-colors">
-                  <Linkedin size={16} className="text-space-light" />
-                </a>
-                <a href="#" className="w-8 h-8 rounded-full bg-space-blue/30 flex items-center justify-center border border-space-cyan/20 hover:bg-space-blue/50 transition-colors">
-                  <MessageSquare size={16} className="text-space-light" />
-                </a>
+                <a href="#" className="text-space-light hover:text-space-cyan transition-colors duration-300 text-sm">Política de Privacidade</a>
+                <a href="#" className="text-space-light hover:text-space-cyan transition-colors duration-300 text-sm">Termos de Serviços</a>
+                <a href="#" className="text-space-light hover:text-space-cyan transition-colors duration-300 text-sm">Contato</a>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </footer>
   );
 };
 
