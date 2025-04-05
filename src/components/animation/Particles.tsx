@@ -1,61 +1,78 @@
 
-import React from 'react';
+import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 
 const Particles = () => {
+  // Pre-generate random values for meteors
+  const meteors = useRef(Array.from({ length: 6 }).map(() => ({
+    left: Math.floor(Math.random() * 100),
+    angle: Math.floor(Math.random() * 15) + 15,
+    duration: Math.floor(Math.random() * 10) + 15,
+    delay: Math.floor(Math.random() * 20),
+    endLeft: Math.floor(Math.random() * 100) - 10
+  })));
+
+  // Pre-generate random values for particles
+  const particles = useRef(Array.from({ length: 10 }).map(() => ({
+    top: Math.floor(Math.random() * 100),
+    left: Math.floor(Math.random() * 100),
+    duration: 3 + Math.floor(Math.random() * 2),
+    delay: Math.floor(Math.random() * 2)
+  })));
+
   return (
     <div className="fixed pointer-events-none inset-0 z-10 overflow-hidden">
       {/* Meteoros animados que percorrem toda a página */}
-      {[...Array(6)].map((_, i) => (
+      {meteors.current.map((meteor, i) => (
         <motion.div
           key={i}
           className="absolute w-0.5 h-0.5 meteor-trail"
           style={{
             background: 'linear-gradient(90deg, rgba(255,255,255,0.5), rgba(255,255,255,0))',
-            left: `${Math.random() * 100}%`,
+            left: `${meteor.left}%`,
             top: -5,
             width: `${Math.random() * 100 + 50}px`,
             height: '2px',
-            transformOrigin: 'left'
+            transformOrigin: 'left',
+            transform: `rotate(${meteor.angle}deg)`
           }}
           initial={{ 
             opacity: 0,
             top: -5,
-            left: `${Math.random() * 100}%`,
-            transform: `rotate(${Math.random() * 15 + 15}deg)` 
+            left: `${meteor.left}%`,
           }}
           animate={{
             top: '120vh',
-            left: `${Math.random() * 100 - 10}%`,
+            left: `${meteor.endLeft}%`,
             opacity: [0, 0.8, 0]
           }}
           transition={{
-            duration: Math.random() * 10 + 15,
+            duration: meteor.duration,
             ease: "linear",
             repeat: Infinity,
-            delay: Math.random() * 20,
+            delay: meteor.delay,
             repeatDelay: Math.random() * 20
           }}
         />
       ))}
       
       {/* Partículas flutuantes */}
-      {[...Array(10)].map((_, i) => (
+      {particles.current.map((particle, i) => (
         <motion.div
           key={i}
           className="absolute w-1 h-1 rounded-full bg-space-cyan opacity-80"
           style={{
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
+            top: `${particle.top}%`,
+            left: `${particle.left}%`,
           }}
           animate={{
             y: [0, -10, 0],
             opacity: [0.2, 0.8, 0.2],
           }}
           transition={{
-            duration: 3 + Math.random() * 2,
+            duration: particle.duration,
             repeat: Infinity,
-            delay: Math.random() * 2,
+            delay: particle.delay,
           }}
         />
       ))}

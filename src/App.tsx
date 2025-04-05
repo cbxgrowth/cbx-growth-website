@@ -28,12 +28,12 @@ function App() {
   }, []);
 
   if (loading) {
-    return <SplashScreen />;
+    return <SplashScreen onFinish={() => setLoading(false)} />;
   }
 
   return (
     <BrowserRouter>
-      <Suspense fallback={<SplashScreen />}>
+      <Suspense fallback={<SplashScreen onFinish={() => {}} />}>
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/blog" element={<Blog />} />
