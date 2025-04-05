@@ -25,6 +25,17 @@ export interface WordPressPost {
   author_name?: string;
   category_names?: string[];
   reading_time?: string;
+  _embedded?: {
+    'wp:featuredmedia'?: Array<{
+      source_url: string;
+    }>;
+    'wp:term'?: Array<Array<{
+      name: string;
+    }>>;
+    'author'?: Array<{
+      name: string;
+    }>;
+  };
 }
 
 export interface WordPressCategory {

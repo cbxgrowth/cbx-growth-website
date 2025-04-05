@@ -3,10 +3,10 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface SplashScreenProps {
-  onFinish: () => void;
+  onFinish?: () => void;
 }
 
-const SplashScreen: React.FC<SplashScreenProps> = ({ onFinish }) => {
+const SplashScreen: React.FC<SplashScreenProps> = ({ onFinish = () => {} }) => {
   const [isVisible, setIsVisible] = useState(true);
   const [stage, setStage] = useState(1);
 
