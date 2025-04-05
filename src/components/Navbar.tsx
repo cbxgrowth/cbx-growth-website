@@ -159,7 +159,7 @@ const Navbar = () => {
               whileTap={{ scale: 0.95 }}
               className="ml-4 px-6 py-2 bg-space-cyan text-space-dark font-medium rounded-md hover:bg-space-cyan/80 transition-colors"
             >
-              Quero aplicar esse método
+              Iniciar conversa
             </motion.button>
           </motion.div>
         )}

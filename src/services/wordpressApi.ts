@@ -75,7 +75,7 @@ export interface WordPressMedia {
 class WordPressApi {
   private baseUrl: string;
   
-  constructor(baseUrl: string = 'https://seu-site.com.br/wp-json/wp/v2') {
+  constructor(baseUrl: string = 'https://cbxgrowth.com.br/wp-json/wp/v2') {
     this.baseUrl = baseUrl;
   }
   

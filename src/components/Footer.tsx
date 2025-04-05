@@ -82,8 +82,8 @@ const Footer = () => {
             >
               <h3 className="text-2xl font-bold mb-4 text-space-cyan">Pronto para começar sua jornada de Growth?</h3>
               <p className="text-space-light mb-6">
-                Junte-se a nós na construção de um novo patamar de empresa. Nossa equipe de especialistas está 
-                pronta para ajudar você a transformar seu negócio.
+                Iremos te ajudar na construção de um novo patamar de empresa. Nossa equipe de especialistas está 
+                pronta para transformar o seu negócio em até 90 dias.
               </p>
               <GradientButton className="flex items-center gap-2 mx-auto hover-scale" href="/contato">
                 Entre em Contato <ArrowRight size={16} />
@@ -97,7 +97,7 @@ const Footer = () => {
             <div>
               <h3 className="text-xl font-bold mb-6 text-space-cyan">Sobre CBX Growth</h3>
               <p className="text-space-light mb-6">
-                Somos especialistas em marketing digital, desenvolvimento web e estratégias de crescimento para negócios que buscam resultados acima da média.
+                Somos especialistas em Growth Marketing e Sales, desenvolvendo estratégias de crescimento para negócios que buscam resultados acima da média.
               </p>
               
               {/* Partner badges */}
@@ -154,13 +154,13 @@ const Footer = () => {
                 <li className="flex items-start">
                   <MapPin size={18} className="text-space-cyan mr-2 mt-1 flex-shrink-0" />
                   <span className="text-space-light">
-                    R. Sampaio Viana, 202 - Paraíso<br />
-                    São Paulo - SP, 04004-000
+                    Rua Doutor Possidonio Bem, 371. Sala 05 CXPST 24. Lagoa Seca.<br />
+                    Juazeiro do Norte - CE, 63040-300.
                   </span>
                 </li>
                 <li className="flex items-center">
                   <Phone size={18} className="text-space-cyan mr-2 flex-shrink-0" />
-                  <span className="text-space-light">(11) 9999-9999</span>
+                  <span className="text-space-light">(88) 98843-2310</span>
                 </li>
                 <li className="flex items-center">
                   <Mail size={18} className="text-space-cyan mr-2 flex-shrink-0" />
@@ -175,19 +175,19 @@ const Footer = () => {
             <div>
               <h3 className="text-xl font-bold mb-6 text-space-cyan">Siga-nos</h3>
               <div className="flex space-x-4 mb-8">
-                <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" 
+                <a href="https://www.instagram.com/cbxgrowth/" target="_blank" rel="noopener noreferrer" 
                   className="w-10 h-10 rounded-full bg-space-blue/30 flex items-center justify-center border border-space-cyan/20 hover:bg-space-blue/50 transition-colors">
                   <Instagram size={18} className="text-space-light" />
                 </a>
-                <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer"
+                <a href="https://www.linkedin.com/in/caioborgesgrowth/" target="_blank" rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-space-blue/30 flex items-center justify-center border border-space-cyan/20 hover:bg-space-blue/50 transition-colors">
                   <Linkedin size={18} className="text-space-light" />
                 </a>
-                <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer"
+                <a href="https://www.facebook.com/cbxgrowth" target="_blank" rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-space-blue/30 flex items-center justify-center border border-space-cyan/20 hover:bg-space-blue/50 transition-colors">
                   <Facebook size={18} className="text-space-light" />
                 </a>
-                <a href="https://whatsapp.com/" target="_blank" rel="noopener noreferrer"
+                <a href="https://wa.me/88988432310" target="_blank" rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-space-blue/30 flex items-center justify-center border border-space-cyan/20 hover:bg-space-blue/50 transition-colors">
                   <MessageSquare size={18} className="text-space-light" />
                 </a>

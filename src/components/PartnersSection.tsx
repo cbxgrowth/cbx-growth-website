@@ -121,3 +121,5 @@ const PartnersSection = () => {
 };
 
 export default PartnersSection;
+
+>>>>>>> bb6279258409a5226721d56eb37e984cd083f575
