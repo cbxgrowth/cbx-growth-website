@@ -9,6 +9,7 @@ interface GradientButtonProps {
   href?: string;
   animated?: boolean;
   type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
 }
 
 const GradientButton = ({ 
@@ -17,7 +18,8 @@ const GradientButton = ({
   className,
   href,
   animated = true,
-  type = 'button'
+  type = 'button',
+  disabled = false
 }: GradientButtonProps) => {
   const ButtonContent = () => (
     <div className="relative z-10 px-8 py-3 font-medium text-white">
@@ -30,6 +32,7 @@ const GradientButton = ({
     "transition-all duration-300 ease-out transform hover:scale-[1.01]",
     animated ? "before:absolute before:inset-0 before:bg-cyan-gradient before:transition-all" : "",
     animated ? "before:animate-shimmer before:bg-[length:200%_100%]" : "bg-cyan-gradient",
+    disabled ? "opacity-60 cursor-not-allowed" : "",
     className
   );
 
@@ -42,7 +45,12 @@ const GradientButton = ({
   }
 
   return (
-    <button type={type} onClick={onClick} className={buttonClasses}>
+    <button 
+      type={type} 
+      onClick={onClick} 
+      className={buttonClasses}
+      disabled={disabled}
+    >
       <ButtonContent />
     </button>
   );
