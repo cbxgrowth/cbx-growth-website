@@ -33,7 +33,9 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Suspense fallback={<SplashScreen onFinish={() => {}} />}>
+      <Suspense fallback={<div className="fixed inset-0 z-50 flex items-center justify-center bg-space-dark">
+        <p className="text-xl text-space-cyan">Carregando...</p>
+      </div>}>
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/blog" element={<Blog />} />

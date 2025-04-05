@@ -3,7 +3,7 @@ import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 
 const Particles = () => {
-  // Pre-generate random values for meteors
+  // Pre-generate random values for meteors with simpler animation properties
   const meteors = useRef(Array.from({ length: 6 }).map(() => ({
     left: Math.floor(Math.random() * 100),
     angle: Math.floor(Math.random() * 15) + 15,
@@ -12,7 +12,7 @@ const Particles = () => {
     endLeft: Math.floor(Math.random() * 100) - 10
   })));
 
-  // Pre-generate random values for particles
+  // Pre-generate random values for particles with simpler animation properties
   const particles = useRef(Array.from({ length: 10 }).map(() => ({
     top: Math.floor(Math.random() * 100),
     left: Math.floor(Math.random() * 100),
@@ -22,7 +22,7 @@ const Particles = () => {
 
   return (
     <div className="fixed pointer-events-none inset-0 z-10 overflow-hidden">
-      {/* Meteoros animados que percorrem toda a página */}
+      {/* Simplified meteors with pre-defined values */}
       {meteors.current.map((meteor, i) => (
         <motion.div
           key={i}
@@ -35,11 +35,6 @@ const Particles = () => {
             height: '2px',
             transformOrigin: 'left',
             transform: `rotate(${meteor.angle}deg)`
-          }}
-          initial={{ 
-            opacity: 0,
-            top: -5,
-            left: `${meteor.left}%`,
           }}
           animate={{
             top: '120vh',
@@ -56,7 +51,7 @@ const Particles = () => {
         />
       ))}
       
-      {/* Partículas flutuantes */}
+      {/* Simplified floating particles with pre-defined values */}
       {particles.current.map((particle, i) => (
         <motion.div
           key={i}
@@ -66,13 +61,13 @@ const Particles = () => {
             left: `${particle.left}%`,
           }}
           animate={{
-            y: [0, -10, 0],
-            opacity: [0.2, 0.8, 0.2],
+            y: [-10, 10, -10],
+            opacity: [0.2, 0.8, 0.2]
           }}
           transition={{
             duration: particle.duration,
             repeat: Infinity,
-            delay: particle.delay,
+            delay: particle.delay
           }}
         />
       ))}

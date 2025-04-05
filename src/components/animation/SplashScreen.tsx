@@ -14,9 +14,8 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onFinish = () => {} }) => {
     x: Math.floor(Math.random() * 100),
     y: Math.floor(Math.random() * 100),
     size: Math.floor(Math.random() * 10) + 2,
-    scale: Math.random() * 0.5,
-    duration: Math.random() * 3 + 2,
-    delay: Math.random() * 3
+    opacity: Math.random() * 0.4 + 0.1,
+    scale: Math.random() * 0.5 + 0.5
   })));
 
   useEffect(() => {
@@ -52,29 +51,26 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onFinish = () => {} }) => {
           transition={{ duration: 0.8, ease: "easeInOut" }}
         >
           <div className="absolute inset-0 overflow-hidden">
-            {/* Dynamic particle background - using pre-generated values */}
+            {/* Static particle background - using pre-generated values */}
             {particlesRef.current.map((particle, i) => (
               <motion.div
                 key={i}
                 className="absolute rounded-full bg-space-cyan/20"
-                initial={{ 
-                  x: `${particle.x}%`, 
-                  y: `${particle.y}%`,
-                  scale: particle.scale,
-                  opacity: 0
-                }}
-                animate={{ 
-                  opacity: [0, 0.4, 0],
-                  scale: [0, Math.random() * 2 + 1, 0]
-                }}
-                transition={{ 
-                  duration: particle.duration,
-                  repeat: Infinity,
-                  delay: particle.delay
-                }}
                 style={{
                   width: `${particle.size}px`,
                   height: `${particle.size}px`,
+                  left: `${particle.x}%`,
+                  top: `${particle.y}%`,
+                  opacity: particle.opacity
+                }}
+                animate={{
+                  scale: [particle.scale, particle.scale * 1.5, particle.scale],
+                  opacity: [particle.opacity, particle.opacity * 2, particle.opacity]
+                }}
+                transition={{
+                  duration: 3 + Math.random() * 2,
+                  repeat: Infinity,
+                  repeatType: "reverse"
                 }}
               />
             ))}
@@ -106,16 +102,17 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onFinish = () => {} }) => {
                 className="w-64 h-64 mx-auto object-contain" 
               />
               
-              {/* Orbiting elements around logo - simplified */}
-              <motion.div 
+              {/* Simplified orbiting elements */}
+              <div 
                 className="absolute top-1/2 left-1/2 w-full h-full -translate-x-1/2 -translate-y-1/2"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, ease: "linear", repeat: Infinity }}
               >
-                <div 
+                <motion.div 
                   className="absolute -top-6 left-1/2 w-3 h-3 -ml-1.5 rounded-full bg-space-cyan"
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 20, ease: "linear", repeat: Infinity }}
+                  style={{ transformOrigin: "center center" }}
                 />
-              </motion.div>
+              </div>
             </motion.div>
             
             <motion.div
