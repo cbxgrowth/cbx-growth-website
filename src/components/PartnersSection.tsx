@@ -7,16 +7,16 @@ interface PartnerLogoProps {
   src: string;
   alt: string;
   link: string;
+  index: number;
 }
 
-const PartnerLogo: React.FC<PartnerLogoProps> = ({ src, alt, link }) => {
+const PartnerLogo: React.FC<PartnerLogoProps> = ({ src, alt, link, index }) => {
   return (
     <motion.div
       className="flex items-center justify-center px-6 py-4"
       initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      viewport={{ once: true }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5, delay: index * 0.1 }}
       whileHover={{ scale: 1.05 }}
     >
       <a 
@@ -84,9 +84,8 @@ const PartnersSection = () => {
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          viewport={{ once: true }}
           className="text-center mb-10"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
@@ -97,29 +96,20 @@ const PartnersSection = () => {
           </p>
         </motion.div>
         
-        <motion.div 
-          className="flex flex-wrap justify-center items-center"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ staggerChildren: 0.1 }}
-          viewport={{ once: true }}
-        >
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {partners.map((partner, index) => (
-              <PartnerLogo
-                key={index}
-                src={partner.src}
-                alt={partner.alt}
-                link={partner.link}
-              />
-            ))}
-          </div>
-        </motion.div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {partners.map((partner, index) => (
+            <PartnerLogo
+              key={index}
+              src={partner.src}
+              alt={partner.alt}
+              link={partner.link}
+              index={index}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
 };
 
 export default PartnersSection;
-
->>>>>>> bb6279258409a5226721d56eb37e984cd083f575
