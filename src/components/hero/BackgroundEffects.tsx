@@ -28,7 +28,7 @@ const BackgroundEffects = () => {
               opacity: 0
             }}
             transition={{ 
-              duration: Math.random() * 8 + 7, 
+              duration: 7 + Math.random() * 8, 
               ease: "linear",
               repeat: Infinity,
               delay

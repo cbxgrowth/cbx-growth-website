@@ -14,17 +14,17 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onFinish = () => {} }) => {
     // Timeline for splash screen animation sequence
     const stageOneTimer = setTimeout(() => {
       setStage(2);
-    }, 1500);
+    }, 1000);
 
     const stageTwoTimer = setTimeout(() => {
       setStage(3);
-    }, 2500);
+    }, 2000);
 
     const finalStageTimer = setTimeout(() => {
       setIsVisible(false);
       // Allow time for exit animation before calling onFinish
-      setTimeout(onFinish, 800);
-    }, 3500);
+      setTimeout(onFinish, 500);
+    }, 2500);
 
     return () => {
       clearTimeout(stageOneTimer);
@@ -40,10 +40,10 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onFinish = () => {} }) => {
           className="fixed inset-0 z-50 flex items-center justify-center bg-space-dark"
           initial={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: 0.8, ease: "easeInOut" }}
+          transition={{ duration: 0.5, ease: "easeInOut" }}
         >
           <div className="absolute inset-0 overflow-hidden">
-            {/* Static particle background */}
+            {/* Static particles instead of animated ones */}
             {Array.from({ length: 20 }).map((_, i) => {
               const size = Math.floor(Math.random() * 10) + 2;
               const x = Math.floor(Math.random() * 100);
@@ -51,7 +51,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onFinish = () => {} }) => {
               const opacity = Math.random() * 0.4 + 0.1;
               
               return (
-                <motion.div
+                <div
                   key={i}
                   className="absolute rounded-full bg-space-cyan/20"
                   style={{
@@ -61,15 +61,6 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onFinish = () => {} }) => {
                     top: `${y}%`,
                     opacity
                   }}
-                  animate={{
-                    scale: [1, 1.5, 1],
-                    opacity: [opacity, opacity * 2, opacity]
-                  }}
-                  transition={{
-                    duration: 3 + Math.random() * 2,
-                    repeat: Infinity,
-                    repeatType: "reverse"
-                  }}
                 />
               );
             })}
@@ -77,21 +68,14 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onFinish = () => {} }) => {
 
           <div className="relative max-w-lg text-center">
             <motion.div
-              initial={{ opacity: 0, scale: 0.8, y: 20 }}
+              initial={{ opacity: 0, scale: 0.8 }}
               animate={{ 
                 opacity: 1, 
-                scale: 1, 
-                y: 0,
-                rotateY: stage >= 2 ? 360 : 0 
+                scale: 1
               }}
               transition={{
-                duration: 1.2,
-                ease: "easeOut",
-                rotateY: { 
-                  duration: 1.2, 
-                  ease: "easeInOut",
-                  delay: 1.5
-                }
+                duration: 1,
+                ease: "easeOut"
               }}
               className="relative z-10 mx-auto mb-4"
             >
@@ -101,26 +85,18 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onFinish = () => {} }) => {
                 className="w-64 h-64 mx-auto object-contain" 
               />
               
-              {/* Simplified orbiting elements */}
-              <div 
-                className="absolute top-1/2 left-1/2 w-full h-full -translate-x-1/2 -translate-y-1/2"
-              >
-                <motion.div 
-                  className="absolute -top-6 left-1/2 w-3 h-3 -ml-1.5 rounded-full bg-space-cyan"
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 20, ease: "linear", repeat: Infinity }}
-                  style={{ transformOrigin: "center center" }}
-                />
+              {/* Static orbiting element instead of animated */}
+              <div className="absolute top-1/2 left-1/2 w-full h-full -translate-x-1/2 -translate-y-1/2">
+                <div className="absolute -top-6 left-1/2 w-3 h-3 -ml-1.5 rounded-full bg-space-cyan"></div>
               </div>
             </motion.div>
             
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0 }}
               animate={{ 
-                opacity: stage >= 2 ? 1 : 0, 
-                y: stage >= 2 ? 0 : 20
+                opacity: stage >= 2 ? 1 : 0
               }}
-              transition={{ duration: 0.8, delay: 0.2 }}
+              transition={{ duration: 0.5 }}
               className="mb-10"
             >
               <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-space-cyan to-space-light">
@@ -133,7 +109,7 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onFinish = () => {} }) => {
               animate={{ 
                 width: stage >= 3 ? '100%' : '0%' 
               }}
-              transition={{ duration: 0.8, ease: "easeInOut" }}
+              transition={{ duration: 0.5 }}
               className="h-1 bg-gradient-to-r from-space-cyan via-space-light to-space-cyan mx-auto rounded-full mb-6"
             />
             

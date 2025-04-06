@@ -26,27 +26,27 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  if (loading) {
-    return <SplashScreen onFinish={() => setLoading(false)} />;
-  }
-
   return (
     <BrowserRouter>
-      <Suspense fallback={<div className="fixed inset-0 z-50 flex items-center justify-center bg-space-dark">
-        <p className="text-xl text-space-cyan">Carregando...</p>
-      </div>}>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:slug" element={<BlogPost />} />
-          <Route path="/blog-admin" element={<BlogAdmin />} />
-          <Route path="/metodo" element={<Metodo />} />
-          <Route path="/cases" element={<Cases />} />
-          <Route path="/sobre" element={<Sobre />} />
-          <Route path="/contato" element={<Contato />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Suspense>
+      {loading ? (
+        <SplashScreen onFinish={() => setLoading(false)} />
+      ) : (
+        <Suspense fallback={<div className="fixed inset-0 z-50 flex items-center justify-center bg-space-dark">
+          <p className="text-xl text-space-cyan">Carregando...</p>
+        </div>}>
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/blog-admin" element={<BlogAdmin />} />
+            <Route path="/metodo" element={<Metodo />} />
+            <Route path="/cases" element={<Cases />} />
+            <Route path="/sobre" element={<Sobre />} />
+            <Route path="/contato" element={<Contato />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Suspense>
+      )}
     </BrowserRouter>
   );
 }

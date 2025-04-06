@@ -6,6 +6,15 @@ import CTASection from './event/CTASection';
 import { motion } from 'framer-motion';
 
 const EventSection = () => {
+  // Create static meteor data instead of random calculations
+  const meteors = [
+    { xStart: 10, xEnd: 20, delay: 5 },
+    { xStart: 30, xEnd: 70, delay: 8 },
+    { xStart: 50, xEnd: 40, delay: 12 },
+    { xStart: 80, xEnd: 60, delay: 7 },
+    { xStart: 20, xEnd: 90, delay: 10 }
+  ];
+
   return (
     <section id="campaign" className="py-32 relative overflow-hidden">
       {/* Conexão visual com o primeiro painel */}
@@ -17,26 +26,26 @@ const EventSection = () => {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] border border-space-cyan/10 rounded-full z-0 opacity-40"></div>
       <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/3 w-[800px] h-[800px] border border-space-cyan/15 rounded-full z-0 opacity-50"></div>
       
-      {/* Meteoros animados */}
-      {Array.from({ length: 5 }).map((_, i) => (
+      {/* Simplified meteors with pre-calculated values */}
+      {meteors.map((meteor, i) => (
         <motion.div 
           key={i}
           className="absolute w-1 h-1 bg-white rounded-full meteor-trail z-0"
           initial={{ 
-            x: Math.random() * window.innerWidth,
+            x: `${meteor.xStart}%`,
             y: -10,
             opacity: 0.7
           }}
           animate={{ 
-            x: `${Math.random() * 100}vw`, 
-            y: `calc(100vh + ${Math.random() * 200}px)`,
+            x: `${meteor.xEnd}%`, 
+            y: '100vh',
             opacity: 0
           }}
           transition={{ 
-            duration: Math.random() * 8 + 7, 
+            duration: 12, 
             ease: "linear",
             repeat: Infinity,
-            delay: Math.random() * 10 + 5
+            delay: meteor.delay
           }}
         />
       ))}
