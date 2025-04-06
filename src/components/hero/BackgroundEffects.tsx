@@ -7,29 +7,35 @@ const BackgroundEffects = () => {
     <>
       <div className="absolute inset-0 bg-neon-glow-gradient opacity-20 animate-glow-pulse"></div>
       
-      {/* Meteoros animados com animações simplificadas */}
-      {[...Array(8)].map((_, i) => (
-        <motion.div 
-          key={i}
-          className="absolute w-1 h-1 bg-white rounded-full meteor-trail z-10"
-          initial={{ 
-            x: Math.random() * 100 + "%",
-            y: -10,
-            opacity: 0.7
-          }}
-          animate={{ 
-            x: `calc(${Math.random() * 100}vw - ${Math.random() * 200}px)`, 
-            y: `calc(${Math.random() * 100}vh + ${Math.random() * 200}px)`,
-            opacity: 0
-          }}
-          transition={{ 
-            duration: Math.random() * 8 + 7, 
-            ease: "linear",
-            repeat: Infinity,
-            delay: Math.random() * 15
-          }}
-        />
-      ))}
+      {/* Simplified meteor animations */}
+      {Array.from({ length: 8 }).map((_, i) => {
+        const xStart = Math.random() * 100;
+        const xEnd = Math.random() * 100;
+        const delay = Math.random() * 15;
+        
+        return (
+          <motion.div 
+            key={i}
+            className="absolute w-1 h-1 bg-white rounded-full meteor-trail z-10"
+            initial={{ 
+              x: `${xStart}%`,
+              y: -10,
+              opacity: 0.7
+            }}
+            animate={{ 
+              x: `${xEnd}%`, 
+              y: '100vh',
+              opacity: 0
+            }}
+            transition={{ 
+              duration: Math.random() * 8 + 7, 
+              ease: "linear",
+              repeat: Infinity,
+              delay
+            }}
+          />
+        );
+      })}
       
       {/* Background Particles */}
       <div className="absolute top-1/4 right-1/4 w-2 h-2 rounded-full bg-space-cyan animate-sparkle"></div>

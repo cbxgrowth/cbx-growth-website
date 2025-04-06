@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface SplashScreenProps {
@@ -9,14 +9,6 @@ interface SplashScreenProps {
 const SplashScreen: React.FC<SplashScreenProps> = ({ onFinish = () => {} }) => {
   const [isVisible, setIsVisible] = useState(true);
   const [stage, setStage] = useState(1);
-  // Pre-generate random positions for particles to avoid runtime calculations
-  const particlesRef = useRef(Array.from({ length: 20 }).map(() => ({
-    x: Math.floor(Math.random() * 100),
-    y: Math.floor(Math.random() * 100),
-    size: Math.floor(Math.random() * 10) + 2,
-    opacity: Math.random() * 0.4 + 0.1,
-    scale: Math.random() * 0.5 + 0.5
-  })));
 
   useEffect(() => {
     // Timeline for splash screen animation sequence
@@ -51,29 +43,36 @@ const SplashScreen: React.FC<SplashScreenProps> = ({ onFinish = () => {} }) => {
           transition={{ duration: 0.8, ease: "easeInOut" }}
         >
           <div className="absolute inset-0 overflow-hidden">
-            {/* Static particle background - using pre-generated values */}
-            {particlesRef.current.map((particle, i) => (
-              <motion.div
-                key={i}
-                className="absolute rounded-full bg-space-cyan/20"
-                style={{
-                  width: `${particle.size}px`,
-                  height: `${particle.size}px`,
-                  left: `${particle.x}%`,
-                  top: `${particle.y}%`,
-                  opacity: particle.opacity
-                }}
-                animate={{
-                  scale: [particle.scale, particle.scale * 1.5, particle.scale],
-                  opacity: [particle.opacity, particle.opacity * 2, particle.opacity]
-                }}
-                transition={{
-                  duration: 3 + Math.random() * 2,
-                  repeat: Infinity,
-                  repeatType: "reverse"
-                }}
-              />
-            ))}
+            {/* Static particle background */}
+            {Array.from({ length: 20 }).map((_, i) => {
+              const size = Math.floor(Math.random() * 10) + 2;
+              const x = Math.floor(Math.random() * 100);
+              const y = Math.floor(Math.random() * 100);
+              const opacity = Math.random() * 0.4 + 0.1;
+              
+              return (
+                <motion.div
+                  key={i}
+                  className="absolute rounded-full bg-space-cyan/20"
+                  style={{
+                    width: `${size}px`,
+                    height: `${size}px`,
+                    left: `${x}%`,
+                    top: `${y}%`,
+                    opacity
+                  }}
+                  animate={{
+                    scale: [1, 1.5, 1],
+                    opacity: [opacity, opacity * 2, opacity]
+                  }}
+                  transition={{
+                    duration: 3 + Math.random() * 2,
+                    repeat: Infinity,
+                    repeatType: "reverse"
+                  }}
+                />
+              );
+            })}
           </div>
 
           <div className="relative max-w-lg text-center">

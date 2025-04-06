@@ -17,19 +17,18 @@ const EventSection = () => {
       <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] border border-space-cyan/10 rounded-full z-0 opacity-40"></div>
       <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/3 w-[800px] h-[800px] border border-space-cyan/15 rounded-full z-0 opacity-50"></div>
       
-      {/* Meteoros animados continuados do primeiro painel */}
-      {[...Array(5)].map((_, i) => (
+      {/* Meteoros animados */}
+      {Array.from({ length: 5 }).map((_, i) => (
         <motion.div 
           key={i}
-          className={`absolute w-1 h-1 bg-white rounded-full meteor-trail z-0`}
+          className="absolute w-1 h-1 bg-white rounded-full meteor-trail z-0"
           initial={{ 
             x: Math.random() * window.innerWidth,
             y: -10,
-            opacity: 0.7,
-            scale: Math.random() * 0.5 + 0.5
+            opacity: 0.7
           }}
           animate={{ 
-            x: `calc(${Math.random() * 100}vw - ${Math.random() * 200}px)`, 
+            x: `${Math.random() * 100}vw`, 
             y: `calc(100vh + ${Math.random() * 200}px)`,
             opacity: 0
           }}
