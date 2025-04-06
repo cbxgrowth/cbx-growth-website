@@ -8,7 +8,6 @@ const Index = lazy(() => import('./pages/Index'));
 const Blog = lazy(() => import('./pages/Blog'));
 const BlogPost = lazy(() => import('./pages/BlogPost'));
 const BlogAdmin = lazy(() => import('./pages/BlogAdmin'));
-const Produto = lazy(() => import('./pages/Produto'));
 const Metodo = lazy(() => import('./pages/Metodo'));
 const Cases = lazy(() => import('./pages/Cases'));
 const Sobre = lazy(() => import('./pages/Sobre'));
@@ -41,7 +40,6 @@ function App() {
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/blog-admin" element={<BlogAdmin />} />
-          <Route path="/produto" element={<Produto />} />
           <Route path="/metodo" element={<Metodo />} />
           <Route path="/cases" element={<Cases />} />
           <Route path="/sobre" element={<Sobre />} />
