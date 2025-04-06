@@ -16,11 +16,13 @@ const Index = () => {
   return (
     <PageLayout controls={controls}>
       <Navbar />
-      <HeroSection />
-      <EventSection />
-      <LeadCaptureForm />
-      <TechGrid />
-      <PartnersSection />
+      <main className="flex-1">
+        <HeroSection />
+        <EventSection />
+        <LeadCaptureForm />
+        <TechGrid />
+        <PartnersSection />
+      </main>
       <Footer />
     </PageLayout>
   );

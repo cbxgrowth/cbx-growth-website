@@ -5,11 +5,11 @@ import PlatformFeature from './PlatformFeature';
 
 const PlatformSection = () => {
   return (
-    <section className="py-16">
+    <section className="py-16 bg-space-dark/60">
       <div className="container mx-auto px-6 md:px-12">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 0.7 }}
           className="max-w-4xl mx-auto text-center mb-16"
         >

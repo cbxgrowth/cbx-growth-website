@@ -16,16 +16,18 @@ const Metodo = () => {
     <PageLayout controls={controls}>
       <Navbar />
       
-      <section className="pt-32 pb-20">
-        <div className="container mx-auto px-6 md:px-12">
-          <MethodHero />
-          <MethodTimeline />
-        </div>
-      </section>
-      
-      <PlatformSection />
-      
-      <PartnersSection />
+      <main className="flex-1">
+        <section className="pt-32 pb-20">
+          <div className="container mx-auto px-6 md:px-12">
+            <MethodHero />
+            <MethodTimeline />
+          </div>
+        </section>
+        
+        <PlatformSection />
+        
+        <PartnersSection />
+      </main>
       
       <Footer />
     </PageLayout>
