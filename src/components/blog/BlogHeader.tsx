@@ -2,6 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import BlogSearch from './BlogSearch';
+import Logo from '../ui/Logo';
 
 interface BlogHeaderProps {
   searchQuery: string;
@@ -16,6 +17,9 @@ const BlogHeader = ({ searchQuery, setSearchQuery }: BlogHeaderProps) => {
       transition={{ duration: 0.7 }}
       className="max-w-4xl mx-auto text-center mb-12"
     >
+      <div className="flex justify-center mb-4">
+        <Logo size="lg" withText={false} />
+      </div>
       <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
         Blog <span className="text-space-cyan">CBX Growth</span>
       </h1>

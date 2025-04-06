@@ -1,10 +1,11 @@
 
 import React, { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
-import { Menu, X, Star } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import Logo from './ui/Logo';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -69,13 +70,7 @@ const Navbar = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <Link to="/" className="flex items-center">
-            <div className="mr-2 w-6 h-6 bg-space-blue/30 rounded-full border border-space-cyan/50 flex items-center justify-center">
-              <Star className="w-3 h-3 text-space-cyan" />
-            </div>
-            <span className="text-space-cyan mr-1">CBX</span> Growth
-            <span className="ml-1 w-2 h-2 rounded-full bg-space-cyan animate-pulse block"></span>
-          </Link>
+          <Logo size={isMobile ? "sm" : "md"} />
         </motion.div>
 
         {isMobile ? (
