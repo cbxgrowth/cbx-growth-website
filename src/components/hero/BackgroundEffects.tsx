@@ -7,16 +7,15 @@ const BackgroundEffects = () => {
     <>
       <div className="absolute inset-0 bg-neon-glow-gradient opacity-20 animate-glow-pulse"></div>
       
-      {/* Meteoros animados */}
+      {/* Meteoros animados com animações simplificadas */}
       {[...Array(8)].map((_, i) => (
         <motion.div 
           key={i}
-          className={`absolute w-1 h-1 bg-white rounded-full meteor-trail z-10`}
+          className="absolute w-1 h-1 bg-white rounded-full meteor-trail z-10"
           initial={{ 
-            x: Math.random() * window.innerWidth,
+            x: Math.random() * 100 + "%",
             y: -10,
-            opacity: 0.7,
-            scale: Math.random() * 0.5 + 0.5
+            opacity: 0.7
           }}
           animate={{ 
             x: `calc(${Math.random() * 100}vw - ${Math.random() * 200}px)`, 

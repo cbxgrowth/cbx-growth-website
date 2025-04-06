@@ -5,42 +5,28 @@ import GradientButton from '../ui/GradientButton';
 import { ArrowDown, Star } from 'lucide-react';
 
 const HeroContent = () => {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.3
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
-  };
-
   return (
     <motion.div 
       className="md:w-1/2 text-center md:text-left mb-12 md:mb-0"
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
     >
       <div className="space-y-6">
         <motion.div
           className="inline-flex items-center gap-2 bg-space-blue/30 rounded-full px-4 py-1 border border-space-cyan/30"
-          variants={itemVariants}
-          transition={{ duration: 0.5 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <Star className="text-space-gold w-4 h-4 animate-pulse-subtle" />
+          <Star className="text-space-gold w-4 h-4" />
           <span className="text-sm font-medium text-space-light">Assessoria Growth</span>
         </motion.div>
         
         <motion.h1 
-          variants={itemVariants}
-          transition={{ duration: 0.7 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
           className="text-5xl md:text-7xl font-bold mb-6 tracking-tight text-glow"
         >
           Estratégias de Growth inovadoras
@@ -49,8 +35,9 @@ const HeroContent = () => {
         </motion.h1>
         
         <motion.p 
-          variants={itemVariants}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
           className="text-space-light mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed"
         >
           Através de uma metodologia própria de growth ajudamos empresas
@@ -58,11 +45,12 @@ const HeroContent = () => {
         </motion.p>
         
         <motion.div
-          variants={itemVariants}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
           className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
         >
-          <GradientButton href="#campaign" className="neon-border hover-scale">
+          <GradientButton href="#campaign" className="hover:scale-105 transition-transform">
             Conversar com especialista CBX
           </GradientButton>
           <div className="hidden md:flex items-center space-x-4">
@@ -76,7 +64,8 @@ const HeroContent = () => {
         </motion.div>
         
         <motion.div
-          variants={itemVariants}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}
           className="mt-16 hidden md:block"
         >
@@ -86,7 +75,7 @@ const HeroContent = () => {
           >
             <span className="text-sm mb-2">Saiba mais</span>
             <div className="relative w-8 h-8 rounded-full bg-space-blue/30 border border-space-cyan/30 flex items-center justify-center group-hover:bg-space-cyan/20 transition-colors">
-              <ArrowDown className="animate-bounce-subtle" size={16} />
+              <ArrowDown className="animate-bounce" size={16} />
             </div>
           </a>
         </motion.div>

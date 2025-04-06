@@ -45,7 +45,6 @@ const Navbar = () => {
       y: 0,
       transition: {
         duration: 0.5,
-        staggerChildren: 0.1,
         delayChildren: 0.2
       }
     }
@@ -125,7 +124,7 @@ const Navbar = () => {
                       transition={{ duration: 0.3, delay: navigation.length * 0.1 }}
                       className="mt-4 px-6 py-2 bg-space-cyan text-space-dark font-medium rounded-md hover:bg-space-cyan/80 transition-colors"
                     >
-                      Assinar Newsletter
+                      Iniciar conversa
                     </motion.button>
                   </div>
                 </motion.div>
@@ -144,6 +143,8 @@ const Navbar = () => {
                 key={item.name}
                 variants={itemVariants}
                 whileHover={{ y: -2 }}
+                custom={index}
+                transition={{ delay: index * 0.05 }}
               >
                 <Link 
                   to={item.href} 
