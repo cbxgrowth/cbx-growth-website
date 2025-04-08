@@ -15,10 +15,10 @@ const EventContent = () => {
       transition={{ duration: 0.8 }}
     >
       <div className="text-left mb-12">
-        <h2 className="text-sm text-space-cyan font-medium uppercase tracking-wider mb-2">Growth Marketing e Sales</h2>
+        <h2 className="text-sm text-space-cyan font-medium uppercase tracking-wider mb-2">Growth Marketing e Vendas</h2>
         <h1 className="text-4xl md:text-5xl font-bold mb-6">Growth aplicado em <span className="gradient-text">performance</span></h1>
         <p className="text-space-light max-w-xl">
-          Metodologia 100% focada no alcance de resultados em até 90 dias. Nosso método é um funil contínuo e otimizado para o seu negócio crescer.
+          Metodologia 100% focada no alcance de resultados em até 90 dias. Nosso método é baseado em 4 pilares de um funil contínuo e otimizado para o seu negócio crescer.
         </p>
       </div>
 

@@ -20,7 +20,7 @@ const HeroContent = () => {
           transition={{ duration: 0.5, delay: 0.1 }}
         >
           <Star className="text-space-gold w-4 h-4" />
-          <span className="text-sm font-medium text-space-light">Assessoria Growth</span>
+          <span className="text-sm font-medium text-space-light">Assessoria de Growth</span>
         </motion.div>
         
         <motion.h1 
@@ -41,7 +41,7 @@ const HeroContent = () => {
           className="text-space-light mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed"
         >
           Através de uma metodologia própria de growth ajudamos empresas
-          e e-commerces em seus desafios de marketing! 
+          e e-commerces e equipes em seus desafios de Marketing e Vendas! 
         </motion.p>
         
         <motion.div
@@ -51,14 +51,14 @@ const HeroContent = () => {
           className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
         >
           <GradientButton href="#campaign" className="hover:scale-105 transition-transform">
-            Conversar com especialista CBX
+            Agendar reunião
           </GradientButton>
           <div className="hidden md:flex items-center space-x-4">
             <div className="bg-space-blue/20 backdrop-blur-sm border border-space-cyan/20 rounded-full px-4 py-1 text-sm">
-              <span className="text-space-light">38 Projetos executados</span>
+              <span className="text-space-light">Inovações</span>
             </div>
             <div className="bg-space-blue/20 backdrop-blur-sm border border-space-cyan/20 rounded-full px-4 py-1 text-sm">
-              <span className="text-space-light">Mais de 246 profissionais impactados</span>
+              <span className="text-space-light">e Estratégias personalizadas</span>
             </div>
           </div>
         </motion.div>

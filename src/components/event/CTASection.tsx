@@ -16,8 +16,8 @@ const CTASection = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="md:w-2/3">
             <h2 className="text-3xl font-bold text-space-dark mb-4">
-              Não perca espaço para o seu concorrente. Conte conosco!
-              <span className="block mt-2">Converse com nossos especialistas.</span>
+              Não perca espaço para o seu concorrente!
+              <span className="block mt-2">Converse com nossos especialistas agora.</span>
             </h2>
           </div>
           <div className="md:w-1/3 flex justify-end">
