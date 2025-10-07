@@ -57,20 +57,20 @@ const TechGrid = () => {
   };
 
   return (
-    <section id="service" className="py-24 relative overflow-hidden cyber-grid">
-      <div className="container mx-auto px-6 md:px-12">
+    <section id="service" className="py-24 md:py-40 relative overflow-hidden cyber-grid">
+      <div className="container mx-auto px-6 md:px-12 lg:px-16 xl:px-24 max-w-[1600px]">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-20 md:mb-24"
         >
-          <div className="inline-block mb-4 px-6 py-1 bg-space-blue/30 backdrop-blur-sm border border-space-cyan/20 rounded-full">
-            <h2 className="text-sm font-medium text-space-cyan">NOSSOS SERVIÇOS</h2>
+          <div className="inline-block mb-6 px-8 py-2 bg-space-blue/30 backdrop-blur-sm border border-space-cyan/20 rounded-full">
+            <h2 className="text-sm md:text-base font-medium text-space-cyan tracking-wider">NOSSOS SERVIÇOS</h2>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold gradient-text mb-6">MENTALIDADE CBX</h1>
-          <p className="text-space-light max-w-xl mx-auto">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold gradient-text mb-8">MENTALIDADE CBX</h1>
+          <p className="text-base md:text-lg text-space-light max-w-2xl mx-auto leading-relaxed">
             Método validado com soluções de growth para aceleração e crescimento de negócios.
           </p>
         </motion.div>
@@ -153,7 +153,7 @@ const TechGrid = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 xl:gap-12"
           >
             <TechItem 
               title="CONVERSÕES" 

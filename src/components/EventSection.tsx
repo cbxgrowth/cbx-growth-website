@@ -16,7 +16,7 @@ const EventSection = () => {
   ];
 
   return (
-    <section id="campaign" className="py-32 relative overflow-hidden">
+    <section id="campaign" className="py-24 md:py-40 relative overflow-hidden">
       {/* Conexão visual com o primeiro painel */}
       <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-space-dark to-transparent z-0"></div>
       
@@ -56,8 +56,8 @@ const EventSection = () => {
         <div className="absolute top-1/3 left-2/3 w-1.5 h-1.5 rounded-full bg-space-pink animate-sparkle delay-[1.5s]"></div>
       </div>
 
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-16">
+      <div className="container mx-auto px-6 md:px-12 lg:px-16 xl:px-24 relative z-10 max-w-[1600px]">
+        <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-20 xl:gap-24">
           <EventContent />
           <EventImage />
         </div>

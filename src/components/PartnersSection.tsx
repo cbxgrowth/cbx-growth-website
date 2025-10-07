@@ -13,22 +13,22 @@ interface PartnerLogoProps {
 const PartnerLogo: React.FC<PartnerLogoProps> = ({ src, alt, link, index }) => {
   return (
     <motion.div
-      className="flex items-center justify-center px-6 py-4"
+      className="flex items-center justify-center p-6 lg:p-8 rounded-xl bg-space-dark/40 border border-space-cyan/10 backdrop-blur-sm"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      whileHover={{ scale: 1.05 }}
+      whileHover={{ scale: 1.05, borderColor: 'rgba(94, 234, 212, 0.3)' }}
     >
       <a 
         href={link} 
         target="_blank" 
         rel="noopener noreferrer"
-        className="transition-transform hover:opacity-80"
+        className="transition-transform hover:opacity-80 w-full h-full flex items-center justify-center"
       >
         <img 
           src={src} 
           alt={alt} 
-          className="h-20 md:h-24 w-auto object-contain filter brightness-100"
+          className="h-16 md:h-20 lg:h-24 w-auto object-contain filter brightness-100"
         />
       </a>
     </motion.div>
@@ -80,23 +80,23 @@ const PartnersSection = () => {
   ];
 
   return (
-    <section className="py-16 bg-space-dark/70 backdrop-blur-sm">
-      <div className="container mx-auto px-4">
+    <section className="py-20 md:py-32 bg-space-dark/70 backdrop-blur-sm">
+      <div className="container mx-auto px-6 md:px-12 lg:px-16 xl:px-24 max-w-[1600px]">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="text-center mb-10"
+          className="text-center mb-16 md:mb-20"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">
             Nossos <span className="text-space-cyan">Parceiros</span>
           </h2>
-          <p className="text-space-light max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-space-light max-w-2xl mx-auto leading-relaxed">
             Trabalhamos com as melhores ferramentas e tecnologias do mercado para oferecer soluções completas
           </p>
         </motion.div>
         
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-12">
           {partners.map((partner, index) => (
             <PartnerLogo
               key={index}

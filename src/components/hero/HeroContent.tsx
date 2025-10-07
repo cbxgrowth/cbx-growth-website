@@ -12,22 +12,22 @@ const HeroContent = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <div className="space-y-4 md:space-y-6">
+      <div className="space-y-6 md:space-y-8">
         <motion.div
-          className="inline-flex items-center gap-2 bg-space-blue/30 rounded-full px-3 md:px-4 py-1 border border-space-cyan/30"
+          className="inline-flex items-center gap-2 bg-space-blue/30 rounded-full px-4 md:px-5 py-2 border border-space-cyan/30"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <Star className="text-space-gold w-3 h-3 md:w-4 md:h-4" />
-          <span className="text-xs md:text-sm font-medium text-space-light">Assessoria de Growth</span>
+          <Star className="text-space-gold w-4 h-4 md:w-5 md:h-5" />
+          <span className="text-sm md:text-base font-medium text-space-light">Assessoria de Growth</span>
         </motion.div>
         
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-4 md:mb-6 tracking-tight text-glow leading-tight"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 md:mb-8 tracking-tight text-glow leading-[1.1]"
         >
           Estratégias de Growth inovadoras
           <br />
@@ -38,7 +38,7 @@ const HeroContent = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-sm md:text-base text-space-light mb-6 md:mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed"
+          className="text-base md:text-lg lg:text-xl text-space-light mb-8 md:mb-10 max-w-xl mx-auto md:mx-0 leading-relaxed"
         >
           Através de uma metodologia própria de growth ajudamos empresas
           e e-commerces e equipes em seus desafios de Marketing e Vendas! 
