@@ -63,9 +63,9 @@ const Navbar = () => {
         scrolled ? 'bg-space-dark/90 backdrop-blur-md py-3 shadow-lg' : 'py-6'
       )}
     >
-      <div className="container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center justify-between">
+      <div className="container mx-auto px-4 md:px-6 lg:px-12 flex items-center justify-between w-full">
         <motion.div 
-          className="text-xl font-bold text-white flex items-center"
+          className="text-xl font-bold text-white flex items-center flex-shrink-0"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
@@ -80,7 +80,7 @@ const Navbar = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5 }}
               onClick={toggleMobileMenu}
-              className="text-white focus:outline-none relative z-50 mt-2 md:mt-0"
+              className="text-white focus:outline-none relative z-50 p-2"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -93,9 +93,9 @@ const Navbar = () => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.3 }}
-                  className="absolute top-full left-0 w-full bg-space-dark/95 backdrop-blur-md shadow-lg py-4 border-t border-space-cyan/20"
+                  className="absolute top-full left-0 w-full bg-space-dark/98 backdrop-blur-md shadow-lg py-4 border-t border-space-cyan/20"
                 >
-                  <div className="container mx-auto px-6 flex flex-col items-center">
+                  <div className="container mx-auto px-4 flex flex-col items-center gap-1">
                     {navigation.map((item, index) => (
                       <motion.div
                         key={item.name}
@@ -106,7 +106,7 @@ const Navbar = () => {
                       >
                         <Link 
                           to={item.href}
-                          className="block py-3 text-space-light hover:text-space-cyan transition-colors"
+                          className="block py-3 px-4 text-space-light hover:text-space-cyan transition-colors text-center w-full"
                           onClick={() => setMobileMenuOpen(false)}
                         >
                           {item.name}
@@ -117,7 +117,8 @@ const Navbar = () => {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.3, delay: navigation.length * 0.1 }}
-                      className="mt-4 px-6 py-2 bg-space-cyan text-space-dark font-medium rounded-md hover:bg-space-cyan/80 transition-colors"
+                      className="mt-4 mb-2 px-6 py-2 bg-space-cyan text-space-dark font-medium rounded-md hover:bg-space-cyan/80 transition-colors w-full max-w-xs"
+                      onClick={() => setMobileMenuOpen(false)}
                     >
                       Iniciar conversa
                     </motion.button>

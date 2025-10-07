@@ -43,27 +43,27 @@ const LeadCaptureForm = () => {
   };
 
   return (
-    <section className="py-24 relative overflow-hidden bg-space-dark">
+    <section className="py-12 md:py-24 relative overflow-hidden bg-space-dark">
       <div className="absolute inset-0 bg-space-mesh opacity-30"></div>
       
       {/* Animated effects */}
       <div className="absolute top-20 left-1/4 w-64 h-64 bg-space-cyan/20 rounded-full filter blur-3xl"></div>
       <div className="absolute bottom-20 right-1/4 w-64 h-64 bg-space-gold/10 rounded-full filter blur-3xl"></div>
       
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
+      <div className="container mx-auto px-4 md:px-6 lg:px-12 relative z-10">
         <FormHeader />
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10 items-start">
           {/* Form column */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="bg-space-blue/20 backdrop-blur-md rounded-2xl border border-space-cyan/10 p-8"
+            className="bg-space-blue/20 backdrop-blur-md rounded-2xl border border-space-cyan/10 p-4 md:p-8"
           >
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-6">
+              <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-4 md:space-y-6">
                 <FormFields form={form} />
                 <SubmitButton isSubmitting={isSubmitting} />
               </form>

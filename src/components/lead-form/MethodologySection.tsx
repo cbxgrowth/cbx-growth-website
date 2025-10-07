@@ -4,13 +4,13 @@ import { Star, Rocket, CheckCircle2, Clock } from 'lucide-react';
 
 const MethodologySection = () => {
   return (
-    <div className="bg-space-blue/20 backdrop-blur-md rounded-2xl border border-space-cyan/10 p-8">
-      <h3 className="text-2xl font-bold mb-6 text-space-cyan flex items-center gap-2">
-        <Star className="text-space-gold" /> 
+    <div className="bg-space-blue/20 backdrop-blur-md rounded-2xl border border-space-cyan/10 p-4 md:p-8">
+      <h3 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-space-cyan flex items-center gap-2">
+        <Star className="text-space-gold" size={20} /> 
         Metodologia CBX
       </h3>
       
-      <ul className="space-y-6">
+      <ul className="space-y-4 md:space-y-6">
         <li className="flex gap-4">
           <div className="mt-1">
             <Rocket className="text-space-cyan" size={20} />

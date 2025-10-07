@@ -25,22 +25,22 @@ const BlogNewsletter = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.7 }}
-      className="max-w-4xl mx-auto mt-24 bg-gradient-to-r from-space-dark/80 to-space-dark rounded-xl border border-space-cyan/20 p-8 md:p-10"
+      className="max-w-4xl mx-auto mt-12 md:mt-24 bg-gradient-to-r from-space-dark/80 to-space-dark rounded-xl border border-space-cyan/20 p-6 md:p-8 lg:p-10 mx-4"
     >
-      <div className="text-center mb-8">
-        <h3 className="text-2xl md:text-3xl font-bold text-white mb-3">
+      <div className="text-center mb-6 md:mb-8">
+        <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-white mb-2 md:mb-3">
           Receba nosso conteúdo exclusivo
         </h3>
-        <p className="text-space-light max-w-2xl mx-auto">
+        <p className="text-sm md:text-base text-space-light max-w-2xl mx-auto px-2">
           Assine nossa newsletter e receba dicas, estratégias e insights sobre marketing digital, growth hacking e tecnologia diretamente no seu email.
         </p>
       </div>
       
-      <form onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-4 max-w-xl mx-auto">
+      <form onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-3 md:gap-4 max-w-xl mx-auto px-2">
         <Input
           type="email"
           placeholder="Seu melhor email"
-          className="bg-space-dark/70 border-space-cyan/30 text-white placeholder:text-space-light/50 flex-grow"
+          className="bg-space-dark/70 border-space-cyan/30 text-white placeholder:text-space-light/50 flex-grow h-10 md:h-11 text-sm md:text-base"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
@@ -48,13 +48,13 @@ const BlogNewsletter = () => {
         <button 
           type="submit" 
           disabled={isLoading}
-          className="py-2 px-6 bg-space-cyan text-space-dark font-medium rounded-md hover:bg-space-cyan/90 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+          className="py-2 md:py-2.5 px-6 bg-space-cyan text-space-dark font-medium rounded-md hover:bg-space-cyan/90 transition-colors disabled:opacity-70 disabled:cursor-not-allowed text-sm md:text-base whitespace-nowrap"
         >
           {isLoading ? "Inscrevendo..." : "Inscrever-se"}
         </button>
       </form>
       
-      <p className="text-xs text-space-light/70 text-center mt-4">
+      <p className="text-xs md:text-sm text-space-light/70 text-center mt-3 md:mt-4 px-2">
         Nós respeitamos sua privacidade. Você pode cancelar a inscrição a qualquer momento.
       </p>
     </motion.div>

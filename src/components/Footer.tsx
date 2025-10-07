@@ -41,24 +41,24 @@ const Footer = () => {
   ];
   
   return (
-    <footer className="bg-space-dark text-space-light pt-16 pb-8 relative overflow-hidden">
-      <div className="container mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <footer className="bg-space-dark text-space-light pt-12 md:pt-16 pb-6 md:pb-8 relative overflow-hidden">
+      <div className="container mx-auto px-4 md:px-6 lg:px-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           <div className="flex flex-col items-start">
             <Logo size="lg" />
-            <p className="mt-4 text-sm text-space-light/80 max-w-xs">
+            <p className="mt-3 md:mt-4 text-xs md:text-sm text-space-light/80 max-w-xs">
               Transformando negócios através de estratégias inovadoras e soluções de crescimento personalizadas.
             </p>
           </div>
           
           {footerColumns.map((column, index) => (
             <div key={index} className="flex flex-col items-start">
-              <h3 className="text-lg font-semibold mb-4">{column.title}</h3>
+              <h3 className="text-base md:text-lg font-semibold mb-3 md:mb-4">{column.title}</h3>
               {column.links.map((link, linkIndex) => (
                 <Link
                   key={linkIndex}
                   to={link.href}
-                  className="text-space-light/80 hover:text-space-cyan transition-colors block py-1"
+                  className="text-sm text-space-light/80 hover:text-space-cyan transition-colors block py-1"
                 >
                   {link.name}
                 </Link>
@@ -68,12 +68,12 @@ const Footer = () => {
           
         </div>
         
-        <div className="mt-12 pt-8 border-t border-space-light/10 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-sm text-space-light/60">
+        <div className="mt-8 md:mt-12 pt-6 md:pt-8 border-t border-space-light/10 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-xs md:text-sm text-space-light/60 text-center md:text-left">
             &copy; {new Date().getFullYear()} CBX Growth. Todos os direitos reservados.
           </p>
           
-          <div className="flex space-x-4">
+          <div className="flex space-x-4 mt-2 md:mt-0">
             {socialLinks.map((social, index) => (
               <a
                 key={index}

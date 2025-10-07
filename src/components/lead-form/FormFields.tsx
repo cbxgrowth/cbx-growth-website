@@ -14,18 +14,18 @@ interface FormFieldsProps {
 const FormFields: React.FC<FormFieldsProps> = ({ form }) => {
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 gap-4 md:gap-6">
         <FormField
           control={form.control}
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-space-light">Qual seu nome?</FormLabel>
+              <FormLabel className="text-space-light text-sm md:text-base">Qual seu nome?</FormLabel>
               <FormControl>
                 <Input 
                   placeholder="Seu nome completo" 
                   {...field} 
-                  className="bg-space-blue/30 border-space-cyan/30 text-white placeholder:text-space-light/70 focus:border-space-cyan"
+                  className="bg-space-blue/30 border-space-cyan/30 text-white placeholder:text-space-light/70 focus:border-space-cyan h-10 md:h-11"
                 />
               </FormControl>
               <FormMessage />
@@ -38,12 +38,12 @@ const FormFields: React.FC<FormFieldsProps> = ({ form }) => {
           name="email"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-space-light">Qual seu email corporativo?</FormLabel>
+              <FormLabel className="text-space-light text-sm md:text-base">Qual seu email corporativo?</FormLabel>
               <FormControl>
                 <Input 
                   placeholder="seuemail@empresa.com" 
                   {...field} 
-                  className="bg-space-blue/30 border-space-cyan/30 text-white placeholder:text-space-light/70 focus:border-space-cyan"
+                  className="bg-space-blue/30 border-space-cyan/30 text-white placeholder:text-space-light/70 focus:border-space-cyan h-10 md:h-11"
                 />
               </FormControl>
               <FormMessage />
@@ -52,18 +52,18 @@ const FormFields: React.FC<FormFieldsProps> = ({ form }) => {
         />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 gap-4 md:gap-6">
         <FormField
           control={form.control}
           name="whatsapp"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-space-light">Qual seu WhatsApp?</FormLabel>
+              <FormLabel className="text-space-light text-sm md:text-base">Qual seu WhatsApp?</FormLabel>
               <FormControl>
                 <Input 
                   placeholder="(00) 00000-0000" 
                   {...field} 
-                  className="bg-space-blue/30 border-space-cyan/30 text-white placeholder:text-space-light/70 focus:border-space-cyan"
+                  className="bg-space-blue/30 border-space-cyan/30 text-white placeholder:text-space-light/70 focus:border-space-cyan h-10 md:h-11"
                 />
               </FormControl>
               <FormMessage />
@@ -76,12 +76,12 @@ const FormFields: React.FC<FormFieldsProps> = ({ form }) => {
           name="company"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-space-light">Qual o nome da sua empresa?</FormLabel>
+              <FormLabel className="text-space-light text-sm md:text-base">Qual o nome da sua empresa?</FormLabel>
               <FormControl>
                 <Input 
                   placeholder="Nome da sua empresa" 
                   {...field} 
-                  className="bg-space-blue/30 border-space-cyan/30 text-white placeholder:text-space-light/70 focus:border-space-cyan"
+                  className="bg-space-blue/30 border-space-cyan/30 text-white placeholder:text-space-light/70 focus:border-space-cyan h-10 md:h-11"
                 />
               </FormControl>
               <FormMessage />
@@ -90,20 +90,20 @@ const FormFields: React.FC<FormFieldsProps> = ({ form }) => {
         />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 gap-4 md:gap-6">
         <FormField
           control={form.control}
           name="segment"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-space-light">Qual o segmento da empresa?</FormLabel>
+              <FormLabel className="text-space-light text-sm md:text-base">Qual o segmento da empresa?</FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
-                  <SelectTrigger className="bg-space-blue/30 border-space-cyan/30 text-white">
+                  <SelectTrigger className="bg-space-blue/30 border-space-cyan/30 text-white h-10 md:h-11">
                     <SelectValue placeholder="Selecione o segmento" />
                   </SelectTrigger>
                 </FormControl>
-                <SelectContent className="bg-space-dark border-space-cyan/30">
+                <SelectContent className="bg-space-dark border-space-cyan/30 max-h-[200px] overflow-y-auto">
                   <SelectItem value="ecommerce">E-commerce</SelectItem>
                   <SelectItem value="saas">SaaS / Tecnologia</SelectItem>
                   <SelectItem value="servicos">Serviços</SelectItem>
@@ -124,14 +124,14 @@ const FormFields: React.FC<FormFieldsProps> = ({ form }) => {
           name="salesPeople"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-space-light">Quantos vendedores possui?</FormLabel>
+              <FormLabel className="text-space-light text-sm md:text-base">Quantos vendedores possui?</FormLabel>
               <Select onValueChange={field.onChange} defaultValue={field.value}>
                 <FormControl>
-                  <SelectTrigger className="bg-space-blue/30 border-space-cyan/30 text-white">
+                  <SelectTrigger className="bg-space-blue/30 border-space-cyan/30 text-white h-10 md:h-11">
                     <SelectValue placeholder="Número de vendedores" />
                   </SelectTrigger>
                 </FormControl>
-                <SelectContent className="bg-space-dark border-space-cyan/30">
+                <SelectContent className="bg-space-dark border-space-cyan/30 max-h-[200px] overflow-y-auto">
                   <SelectItem value="0">Nenhum vendedor</SelectItem>
                   <SelectItem value="1-5">1 a 5 vendedores</SelectItem>
                   <SelectItem value="6-15">6 a 15 vendedores</SelectItem>
@@ -150,14 +150,14 @@ const FormFields: React.FC<FormFieldsProps> = ({ form }) => {
         name="revenue"
         render={({ field }) => (
           <FormItem>
-            <FormLabel className="text-space-light">Qual o faturamento médio mensal?</FormLabel>
+            <FormLabel className="text-space-light text-sm md:text-base">Qual o faturamento médio mensal?</FormLabel>
             <Select onValueChange={field.onChange} defaultValue={field.value}>
               <FormControl>
-                <SelectTrigger className="bg-space-blue/30 border-space-cyan/30 text-white">
+                <SelectTrigger className="bg-space-blue/30 border-space-cyan/30 text-white h-10 md:h-11">
                   <SelectValue placeholder="Selecione o faturamento" />
                 </SelectTrigger>
               </FormControl>
-              <SelectContent className="bg-space-dark border-space-cyan/30">
+              <SelectContent className="bg-space-dark border-space-cyan/30 max-h-[200px] overflow-y-auto">
                 <SelectItem value="ate-10k">Até R$ 10.000/mês</SelectItem>
                 <SelectItem value="10k-50k">R$ 10.000 a R$ 50.000/mês</SelectItem>
                 <SelectItem value="50k-100k">R$ 50.000 a R$ 100.000/mês</SelectItem>
@@ -176,13 +176,13 @@ const FormFields: React.FC<FormFieldsProps> = ({ form }) => {
         name="objectives"
         render={({ field }) => (
           <FormItem>
-            <FormLabel className="text-space-light">Quais objetivos pretende alcançar conosco?</FormLabel>
+            <FormLabel className="text-space-light text-sm md:text-base">Quais objetivos pretende alcançar conosco?</FormLabel>
             <FormControl>
               <Textarea 
                 placeholder="Descreva seus principais objetivos..." 
                 {...field} 
                 rows={4}
-                className="bg-space-blue/30 border-space-cyan/30 text-white placeholder:text-space-light/70 focus:border-space-cyan resize-none"
+                className="bg-space-blue/30 border-space-cyan/30 text-white placeholder:text-space-light/70 focus:border-space-cyan resize-none text-sm md:text-base"
               />
             </FormControl>
             <FormMessage />
